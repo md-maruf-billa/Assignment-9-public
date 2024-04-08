@@ -19,11 +19,11 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div className='mt-10'>
-                <p className='text-5xl font-title text-center'>Our Best Services</p>
+                <p className='text-3xl md:text-7xl font-title text-center'>Our Best Services</p>
 
 
                 <div className='gradient-bg'>
-                    <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20 '>
+                    <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20 px-4 md:px-0'>
                         {
                             allData?.map(data => <ProductCard key={data.id} data={data}></ProductCard>)
                         }

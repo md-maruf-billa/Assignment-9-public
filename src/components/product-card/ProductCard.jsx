@@ -13,11 +13,11 @@ const ProductCard = ({ data }) => {
         image
     } = data;
     return (
-        <div className='flex items-center border p-6 rounded-2xl'>
-            <div className='w-1/2'>
-                <img className='w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" />
+        <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl'>
+            <div className='md:w-1/2'>
+                <img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" />
             </div>
-            <div className='w-1/2 space-y-3'>
+            <div className='md:w-1/2 space-y-3'>
                 <h2 className='font-title text-[28px]'>{estate_title}</h2>
                 <p><span className='font-semibold'>Segment Type:</span> <span className='bg-[rgba(35,190,10,0.05)] p-2 rounded-lg'>{segment_name}</span></p>
                 <p className='text-justify'>{description.slice(0, 80)}....</p>
@@ -27,14 +27,14 @@ const ProductCard = ({ data }) => {
                     <p><span className='font-semibold'>Location:</span> {location}</p>
                 </div>
                 <hr />
-                <div className='flex flex-wrap gap-2 text-xs items-center'>
+                <div className='flex flex-wrap gap-2 text-xs items-center hidden md:block'>
                     <p className='font-semibold'>Facilities:</p>
                     <p className='bg-[rgba(255,172,51,0.15)] py-2 px-4 rounded-full'>{facilities?.[0]}</p>
                     <p className='bg-[rgba(255,172,51,0.15)] py-2 px-4 rounded-full'>{facilities?.[1]}</p>
 
 
                 </div>
-                <hr />
+                <hr className='hidden md:block' />
                 <div className='flex justify-between items-center'>
                     <p className='bg-[rgba(50,142,255,0.15)] px-6 py-4 rounded-full text-[#328EFF]'>{price}</p>
 

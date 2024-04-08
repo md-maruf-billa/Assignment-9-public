@@ -35,13 +35,13 @@ const Banner = () => {
                     <SwiperSlide>
                         <div className='flex justify-center items-center text-white'>
                             <div className='flex flex-col justify-center items-center'>
-                                <h1 className='text-9xl font-title text-center leading-[140px]'>
+                                <h1 className='md:text-7xl lg:text-9xl font-title text-center md:leading-[90px] lg:leading-[140px]'>
                                     Welcome to the <br />
                                     State of Mississippi <br />
                                     Citizen Portal
                                 </h1>
                                 <div className='flex flex-col justify-center items-center gap-5'>
-                                    <Link to={"/registration"} className='btn bg-transparent text-white text-xl'>Create Your MM.GOV Account</Link>
+                                    <Link to={"/registration"} className='btn bg-transparent text-white text-xs md:text-xl'>Create Your MM.GOV Account</Link>
                                     <small>Already Have Account? <Link to={"/login"} className='text-base underline'>Login</Link></small>
                                 </div>
                             </div>
