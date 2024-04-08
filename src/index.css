@@ -1,10 +1,14 @@
 /* --------------Google Font hare--------- */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* ----------Custom Background Style----- */
+
+/* .gradient-bg {
+    background: linear-gradient(90deg, rgba(242,241,249,1) 0%, rgba(222,184,236,1) 25%, rgba(225,104,255,0.8379726890756303) 42%, rgba(218,183,233,1) 82%, rgba(235,244,246,1) 100%);
+} */
