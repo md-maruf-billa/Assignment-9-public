@@ -41,8 +41,8 @@ const Banner = () => {
                                     Citizen Portal
                                 </h1>
                                 <div className='flex flex-col justify-center items-center gap-5'>
-                                    <Link className='btn bg-transparent text-white text-xl'>Create Your MM.GOV Account</Link>
-                                    <small>Already Have Account? <Link className='text-base underline'>Login</Link></small>
+                                    <Link to={"/registration"} className='btn bg-transparent text-white text-xl'>Create Your MM.GOV Account</Link>
+                                    <small>Already Have Account? <Link to={"/login"} className='text-base underline'>Login</Link></small>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ const Nav = () => {
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
     </>
     return (
-        <div className='bg-[#00000037] fixed w-full top-0'>
+        <div className='bg-[#00000062] fixed w-full top-0 z-50'>
             <div className="navbar bg-transparent container mx-auto text-white">
                 <div className="navbar-start">
                     <div className="dropdown">

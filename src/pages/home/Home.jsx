@@ -13,8 +13,13 @@ const Home = () => {
                 {/* --------Banner Section hare------ */}
                 <Banner></Banner>
             </div>
-            <div>
-                <p className='text-9xl'>Hellw maruf</p>
+            <div className='mt-10'>
+                <p className='text-5xl font-title text-center'>Our Best Services</p>
+
+
+                <div>
+                    
+                </div>
             </div>
             {/* ------Footer hare----- */}
             <Footer></Footer>
