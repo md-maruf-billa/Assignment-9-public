@@ -3,7 +3,7 @@ import {Outlet} from 'react-router-dom'
 
 const Structure = () => {
     return (
-        <div>
+        <div className='font-common'>
             <Outlet></Outlet>
         </div>
     );

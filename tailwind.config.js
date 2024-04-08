@@ -5,7 +5,12 @@ content: [
 './src/**/*.{js,ts,jsx,tsx}',
 ],
 theme: {
-extend: {},
+extend: {
+    fontFamily:{
+        title:"Bebas Neue",
+        common:"Montserrat"
+    }
+},
 },
 plugins: [require('daisyui')],
 }
