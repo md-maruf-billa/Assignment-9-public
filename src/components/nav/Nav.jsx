@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -21,7 +21,7 @@ const Nav = () => {
                             {nav_Link}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl font-light tracking-[0.7rem] font-title">MM.GOV</a>
+                    <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:block mt-2 hover:rounded-lg hover:border py-2 px-1">C.Central</Link>
                 </div>
                 <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal px-1">
