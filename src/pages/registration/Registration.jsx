@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import { userInfoContext } from '../../utils/authentication/UserAuth';
 
 const Registration = () => {
+    const {signInWithEmailAndPassword} = useContext(userInfoContext)
     const {
         register,
         handleSubmit,
-      } = useForm()
-    const handelRegister =(data)=>{
-        console.log(data)
+    } = useForm()
+    const handelRegister = (data) => {
+        signInWithEmailAndPassword(data.email,data.password)
+        // .then(result =>console.log(result.user))
+        .catch(err=>console.error(err))
 
     }
     return (
@@ -21,9 +25,9 @@ const Registration = () => {
                 <div className='flex flex-col w-[400px] gap-12 *:bg-transparent'>
                     <input {...register('firstName')} className='border-b-2 outline-none' type="text" placeholder='First Name' />
                     <input {...register('lastName')} className='border-b-2 outline-none' type="text" placeholder='Last Name' />
-                    <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Username or Email' />
+                    <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Email' />
                     <input {...register('photoURL')} className='border-b-2 outline-none' type="text" placeholder='Photo URL' />
-                    
+
                     <input {...register('password')} className='border-b-2 outline-none' type="password" placeholder='Password' />
                 </div>
                 <div className='flex justify-between mt-6'>
@@ -35,7 +39,7 @@ const Registration = () => {
                         <Link>Forget Password?</Link>
                     </div>
                 </div>
-                <button type='submit' className='btn w-full bg-[#F9A51A] border-none outline-none mt-12'>Login</button>
+                <button type='submit' className='btn w-full bg-[#F9A51A] border-none outline-none mt-12'>Sign Up</button>
                 <p className='text-center mt-4'>Already have an account? <Link className='text-blue-600' to={"/login"}>Login Now</Link></p>
 
 
