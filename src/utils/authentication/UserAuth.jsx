@@ -7,7 +7,7 @@ import auth from '../firebase/FireBase.confing';
 export const userInfoContext = createContext()
 
 const UserAuth = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState([]);
+    const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
 
@@ -21,29 +21,29 @@ const UserAuth = ({ children }) => {
 
 
     // --------------Log In user with email and password-----
-    const logInUserWithEmailAndPassword = (email,password) =>{
+    const logInUserWithEmailAndPassword = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
 
 
     // --------------Log Out user-------------------------
     const LogOutUser = () => {
-        setCurrentUser([])
+        setLoading(true)
+        setCurrentUser(null)
         return signOut(auth)
     }
 
     // -----------Current User ------------------
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            if (user) {
-                setCurrentUser(user)
-                setLoading(false)
-            }
+            setCurrentUser(user)
+            setLoading(false)
+
         })
         return () => {
-            unsubscribe
+            unsubscribe();
         }
     }, [])
 

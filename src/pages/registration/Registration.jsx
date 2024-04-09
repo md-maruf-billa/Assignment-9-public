@@ -107,19 +107,3 @@ const Registration = () => {
 };
 
 export default Registration;
-
-
-
-
-
-
-
-
-
-
-// {
-//     pass && (
-//         passError ? <small className='-mt-12 text-red-600'>Your Password too week</small> :
-//             <small className='-mt-12 text-green-500'>Your Password is Strong</small>
-//     )
-// }

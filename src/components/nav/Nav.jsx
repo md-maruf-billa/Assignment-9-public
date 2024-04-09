@@ -42,7 +42,7 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        currentUser.email ?
+                        currentUser?.email ?
                             <div className='flex justify-center items-center gap-3'>
                                 <div className="tooltip tooltip-bottom" data-tip={`${currentUser.email}`}>
                                     <div className="dropdown dropdown-end">

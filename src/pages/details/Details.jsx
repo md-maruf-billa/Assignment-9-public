@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation,useParams } from 'react-router-dom'
 import useFetch from '../../utils/fetch-data/useFetchData';
 import { MdLocationPin } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
 const Details = () => {
+    const {id} = useParams()
     const [machData, setMachData] = useState([]);
-    const currentLocation = useLocation()
     const { allData } = useFetch()
     useEffect(() => {
-        const machData = allData?.find(data => data.id == currentLocation.state) || [];
+        const machData = allData?.find(data => data.id == id) || [];
         setMachData(machData)
 
     }, [allData])
@@ -27,7 +27,8 @@ const Details = () => {
     } = machData;
 
     return (
-        <div className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>
+        
+        <div className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>            
             <div className='lg:w-1/2'>
                 <img className='md:h-[600px] object-cover w-full rounded-md' src={image} alt="" />
             </div>
@@ -79,3 +80,5 @@ const Details = () => {
 };
 
 export default Details;
+
+

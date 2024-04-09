@@ -6,6 +6,7 @@ import Error from '../pages/error/Error';
 import Login from '../pages/login/Login';
 import Details from '../pages/details/Details';
 import Registration from '../pages/registration/Registration';
+import PrivetRouts from '../privet-routes/PrivetRouts';
 
 const Router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const Router = createBrowserRouter([
             ,
             {
                 path:"/details/:id",
-                element:<Details></Details>
+                element:<PrivetRouts><Details></Details></PrivetRouts>
             }
         ]
     }

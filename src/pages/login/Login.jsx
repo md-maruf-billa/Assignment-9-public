@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
     const { logInUserWithEmailAndPassword } = useContext(userInfoContext)
     const {
         register,
@@ -17,7 +18,7 @@ const Login = () => {
         logInUserWithEmailAndPassword(data.email, data.password)
             .then(result => {
                 toast.success("Login Successful")
-                navigate("/")
+                navigate(location.state? location.state : "/")
 
             })
             .catch(error => {
