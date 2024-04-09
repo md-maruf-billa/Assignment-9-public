@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { userInfoContext } from '../../utils/authentication/UserAuth';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const navigate = useNavigate()
+    const { logInUserWithEmailAndPassword } = useContext(userInfoContext)
+    const {
+        register,
+        handleSubmit
+    } = useForm()
+    const handelLogin = (data) => {
+        logInUserWithEmailAndPassword(data.email, data.password)
+            .then(result => {
+                toast.success("Login Successful")
+                navigate("/")
+
+            })
+            .catch(error => {
+
+                toast.warn("Email or Password Incorrect!")
+            })
+    }
     return (
         <div className='min-h-screen flex justify-center items-center container mx-auto text-black'>
-            <form className='bg-[#00000010] px-14 py-10 rounded-lg'>
+            <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>
 
                 <div className='flex flex-col w-[400px] gap-12 *:bg-transparent'>
-                    <input className='border-b-2 outline-none' type="email" placeholder='Username or Email' />
-                    <input className='border-b-2 outline-none' type="password" placeholder='Password' />
+                    <input {...register("email")} className='border-b-2 outline-none' required type="email" placeholder='Username or Email' />
+                    <input {...register("password")} className='border-b-2 outline-none' required type="password" placeholder='Password' />
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>

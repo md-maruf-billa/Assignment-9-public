@@ -1,20 +1,61 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { userInfoContext } from '../../utils/authentication/UserAuth';
+import { toast } from 'react-toastify';
 
 const Registration = () => {
-    const {signInWithEmailAndPassword} = useContext(userInfoContext)
+    const [passErr, setPassErr] = useState('');
+    const [strongPass , setStrongPass] = useState("");
+    const [successPass , setSuccessPass] = useState("")
+    const navigate = useNavigate();
+    const { signInWithEmail } = useContext(userInfoContext);
     const {
         register,
         handleSubmit,
     } = useForm()
     const handelRegister = (data) => {
-        signInWithEmailAndPassword(data.email,data.password)
-        // .then(result =>console.log(result.user))
-        .catch(err=>console.error(err))
+        const email = data.email;
+        signInWithEmail(email, strongPass)
+            .then(result => {
+                toast.success("SignUp Successful")
+                navigate("/")
+               
+            })
+
+    }
+    const managePassword = (e) => {
+        const password = e.target.value;
+        if (password.length < 6) {
+            setPassErr("Password should be more then 6 character");
+            return;
+        }
+        else if (!/(?=.*[a-z])/.test(password)) {
+            setPassErr("Must be need a lower case");
+
+            return;
+        }
+        else if (!/(?=.*[A-Z])/.test(password)) {
+            setPassErr("Must be need a Upper case");
+            return;
+        }
+        else if (!/(?=.*[0-9])/.test(password)) {
+            setPassErr("Must be need a number");
+            return;
+        }
+        else if (!/(?=.*[!@#$%^&*()])/.test(password)) {
+            setPassErr("Need a special character (!@#$%^&*())");
+            return;
+        }
+
+
+        else {
+            setPassErr("");
+            setSuccessPass("your password is too strong")
+            setStrongPass(password)
+        }
 
     }
     return (
@@ -28,7 +69,11 @@ const Registration = () => {
                     <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Email' />
                     <input {...register('photoURL')} className='border-b-2 outline-none' type="text" placeholder='Photo URL' />
 
-                    <input {...register('password')} className='border-b-2 outline-none' type="password" placeholder='Password' />
+                    <input {...register('password')} onChange={managePassword} className='border-b-2 outline-none' type="password" placeholder='Password' />
+                    {
+                        passErr?<small className='-mt-10 text-red-600'>{passErr}</small>:
+                        <small className='-mt-10 text-green-600'>{successPass}</small>
+                    }
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>
