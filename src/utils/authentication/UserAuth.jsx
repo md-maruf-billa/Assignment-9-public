@@ -1,10 +1,14 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/FireBase.confing';
 
 
 
-export const userInfoContext = createContext()
+export const userInfoContext = createContext();
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 const UserAuth = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -26,8 +30,24 @@ const UserAuth = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    // -------------Sing up with google account-----------
+    const logIngWithGoogle = ()=>{
+        return signInWithPopup(auth,googleProvider)
+    }
 
+    // -------------Sign up with gitHub---------
+    const logInWithGitHub = () =>{
+        return signInWithPopup(auth,githubProvider)
+    }
 
+    // -------------Sign up with Facebook----------
+    const logInWithFaceBook =()=>{
+        return signInWithPopup(auth,facebookProvider)
+    }
+    // ------------Sign Up with Twitter
+    const logInWithTwitter = () =>{
+        return signInWithPopup(auth,twitterProvider)
+    }
     // --------------Log Out user-------------------------
     const LogOutUser = () => {
         setLoading(true)
@@ -53,7 +73,11 @@ const UserAuth = ({ children }) => {
         currentUser,
         loading,
         LogOutUser,
-        logInUserWithEmailAndPassword
+        logInUserWithEmailAndPassword,
+        logIngWithGoogle,
+        logInWithGitHub,
+        logInWithFaceBook,
+        logInWithTwitter
 
     }
     return (

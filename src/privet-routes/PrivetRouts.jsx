@@ -5,7 +5,6 @@ import { Navigate, useLocation } from 'react-router-dom'
 const PrivetRouts = ({ children }) => {
     const location = useLocation();
     const { currentUser,loading } = useContext(userInfoContext);
-    console.log(location)
 
     if (loading) {
         return <div className='h-screen flex justify-center items-center'><div className="loader"></div></div>

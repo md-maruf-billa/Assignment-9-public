@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './productCard.css'
 const ProductCard = ({ data }) => {
     const {
         id,
@@ -13,14 +14,16 @@ const ProductCard = ({ data }) => {
         image
     } = data;
     return (
-        <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl'>
-            <div className='md:w-1/2 cursor-pointer'>
-                <Link state={id} to={`details/${id}`}><img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" /></Link>
+        <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl shadow-lg'>
+            <div className="md:w-1/2 cursor-pointer ">
+                <div className='box'>
+                    <Link state={id} to={`details/${id}`}><img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" /></Link>
+                    <div class="ribbon ribbon-top-right size-[150px] hidden lg:block"><span className='text-xs lg:text-base font-semibold'>{price}</span></div>
+                </div>
             </div>
             <div className='md:w-1/2 space-y-3'>
                 <h2 className='font-title text-[28px]'>{estate_title}</h2>
                 <p><span className='font-semibold'>Segment Type:</span> <span className='bg-[rgba(35,190,10,0.05)] p-2 rounded-lg'>{segment_name}</span></p>
-                <p className='text-justify'>{description.slice(0, 80)}....</p>
                 <hr />
                 <div className='flex justify-between items-center'>
                     <p><span className='font-semibold'>Status:</span> {status}</p>
@@ -35,18 +38,13 @@ const ProductCard = ({ data }) => {
 
                 </div>
                 <hr className='hidden md:block' />
-                <div className='flex justify-between items-center'>
-                    <p className='bg-[rgba(50,142,255,0.15)] px-6 py-4 rounded-full text-[#328EFF]'>{price}</p>
-
+                <div className='flex justify-between lg:justify-end items-center'>
+                    <p className='font-semibold border px-4 py-2 rounded-lg bg-[#3498db2a] lg:hidden'>{price}</p>
                     <Link state={id} to={`details/${id}`}>
 
-                        <p  className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group">
-                            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </span>
-                            <span className="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease">View Details</span>
-                            <span className="relative invisible">View Details</span>
-                        </p>
+                        <a href="#_" class="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-full hover:bg-blue-700 md:mx-0">
+                            See Details
+                        </a>
                     </Link>
                 </div>
             </div>

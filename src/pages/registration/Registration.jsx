@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaFacebook } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
@@ -97,6 +97,8 @@ const Registration = () => {
                 <div className='flex gap-5 justify-center items-center mt-5'>
                     <FcGoogle className='text-4xl cursor-pointer'></FcGoogle>
                     <FaFacebook className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
+                    <FaGithub className='text-4xl cursor-pointer'></FaGithub>
+                    <FaTwitter className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
 
             </form>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaFacebook } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
@@ -9,7 +9,13 @@ import { toast } from 'react-toastify';
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { logInUserWithEmailAndPassword } = useContext(userInfoContext)
+    const navigateRoute = () => { navigate(location.state ? location.state : "/") };
+    const {
+        logInUserWithEmailAndPassword,
+        logIngWithGoogle, logInWithFaceBook,
+        logInWithGitHub,
+        logInWithTwitter
+    } = useContext(userInfoContext)
     const {
         register,
         handleSubmit
@@ -17,23 +23,68 @@ const Login = () => {
     const handelLogin = (data) => {
         logInUserWithEmailAndPassword(data.email, data.password)
             .then(result => {
-                toast.success("Login Successful")
-                navigate(location.state? location.state : "/")
-
+                document.getElementById('my_modal_1').showModal();
+                const showModal = setTimeout(navigateRoute, 2000);
             })
             .catch(error => {
 
                 toast.warn("Email or Password Incorrect!")
             })
     }
+
+    // --------Handel google login------
+    const handelSocilaLogin = (accountName) => {
+        if (accountName == "google") {
+            logIngWithGoogle()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .cathc(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "faceBook") {
+            logInWithFaceBook()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .cathc(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "gitHub") {
+            logInWithGitHub()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .cathc(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "twitter") {
+            logInWithTwitter()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .cathc(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+
+    }
+
     return (
         <div className='min-h-screen flex justify-center items-center container mx-auto text-black'>
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>
 
                 <div className='flex flex-col w-[400px] gap-12 *:bg-transparent'>
-                    <input {...register("email")} className='border-b-2 outline-none' required type="email" placeholder='Username or Email' />
-                    <input {...register("password")} className='border-b-2 outline-none' required type="password" placeholder='Password' />
+                    <input {...register("email")} className='border-b-2 outline-none' type="email" placeholder='Username or Email' />
+                    <input {...register("password")} className='border-b-2 outline-none' type="password" placeholder='Password' />
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>
@@ -55,10 +106,25 @@ const Login = () => {
                     <div className='border-2 w-1/2 h-[1px]'></div>
                 </div>
                 <div className='flex gap-5 justify-center items-center mt-5'>
-                    <FcGoogle className='text-4xl cursor-pointer'></FcGoogle>
+                    <FcGoogle onClick={()=>handelSocilaLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
                     <FaFacebook className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
+                    <FaGithub onClick={()=>handelSocilaLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
+                    <FaTwitter onClick={()=>handelSocilaLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
             </form>
+
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            {/* <button className="btn" onClick={() => }>open modal</button> */}
+            <dialog id="my_modal_1" className="modal">
+                <div className="modal-box flex justify-center items-center flex-col gap-5">
+                    <div className=''>
+                        <img src="data:image/png;base64,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"></img>
+                    </div>
+                    <h2 className='text-3xl text-center font-semibold text-blue-600'>Yeah!!
+                        <br />
+                        You are Successfully Login</h2>
+                </div>
+            </dialog>
         </div>
     );
 };

@@ -22,7 +22,7 @@ const Nav = () => {
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
     </>
     return (
-        <div className='bg-[#00000062] fixed w-full top-0 z-50'>
+        <div className='bg-[#3498dbf3] fixed w-full top-0 z-50'>
             <div className="navbar bg-transparent container mx-auto text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -42,9 +42,9 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        currentUser?.email ?
+                        currentUser ?
                             <div className='flex justify-center items-center gap-3'>
-                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.email}`}>
+                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.email || 'Email Not Found'}`}>
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full">

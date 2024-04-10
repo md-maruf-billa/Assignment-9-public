@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bg-[#131E25]'>
+        <div className='bg-[#3498dbd7]'>
             <footer className="footer p-10  container mx-auto text-white">
                 <nav>
                     <h6 className="footer-title">Services</h6>
@@ -30,9 +30,15 @@ const Footer = () => {
                         <label className="label">
                             <span className="label-text">Enter your email address</span>
                         </label>
-                        
+
                     </fieldset>
                 </form>
+            </footer>
+            <footer className="footer footer-center p-4 bg-[#3498db] text-base-content">
+                <aside>
+                    <p>Copyright © 2024 - All right reserved by Citizen Central</p>
+                    <p>Design By- <span className='font-title'>Md Abu-Mahid Islam</span></p>
+                </aside>
             </footer>
         </div>
     );
