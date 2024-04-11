@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
+import logo from '../../assets/pngwing.com.png'
+import { FaUser } from 'react-icons/fa6';
 const Nav = () => {
     const { currentUser, loading, LogOutUser } = useContext(userInfoContext);
 
@@ -18,8 +20,10 @@ const Nav = () => {
     const nav_Link = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/blogs"}>Blogs</NavLink></li>
-        <li><NavLink to={"/update-profile"}>Update Profile</NavLink></li>
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
+        {
+            currentUser?<li><NavLink to={"/update-profile"}>Update Profile</NavLink></li>:<></>
+        }
     </>
     return (
         <div className='bg-[#3498dbf3] fixed w-full top-0 z-50'>
@@ -33,7 +37,10 @@ const Nav = () => {
                             {nav_Link}
                         </ul>
                     </div>
-                    <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:block mt-2 hover:rounded-lg hover:border py-2 px-1">C.Central</Link>
+                    <div className='justify-center items-center hidden md:flex'>
+                        <img className='w-20' src={logo} alt="" />
+                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title  mt-2">S.Citizen</Link>
+                    </div>
                 </div>
                 <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -45,10 +52,14 @@ const Nav = () => {
                         currentUser ?
                             <div className='flex justify-center items-center gap-3'>
                                 <div className="tooltip tooltip-bottom" data-tip={`${currentUser.email || 'Email Not Found'}`}>
-                                    <div className="dropdown dropdown-end">
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                            <div className="w-10 rounded-full">
-                                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <div className="flex justify-center items-center">
+                                        <div  className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full flex justify-center items-center">
+                                                {
+                                                    currentUser.photoURL?
+                                                    <img alt="user photo" src={currentUser.photoURL} />:
+                                                    <FaUser className='text-3xl mt-1 ml-1  text-black'></FaUser>
+                                                }
                                             </div>
                                         </div>
 

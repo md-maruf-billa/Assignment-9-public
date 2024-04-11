@@ -7,7 +7,7 @@ import { GrStatusGood } from "react-icons/gr";
 const Details = () => {
     const {id} = useParams()
     const [machData, setMachData] = useState([]);
-    const { allData } = useFetch()
+    const { allData } = useFetch('https://raw.githubusercontent.com/md-maruf-billa/My-all-API/main/mm-sites-api.json')
     useEffect(() => {
         const machData = allData?.find(data => data.id == id) || [];
         setMachData(machData)

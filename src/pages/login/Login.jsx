@@ -81,25 +81,25 @@ const Login = () => {
         <div 
         data-aos="zoom-in-up"
         data-aos-duration="1500"
-        className='min-h-screen flex justify-center items-center container mx-auto text-black'>
-            <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
+        className='min-h-screen flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
+            <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>
 
-                <div className='flex flex-col w-[400px] gap-12 *:bg-transparent'>
+                <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
                     <input {...register("email")} className='border-b-2 outline-none' type="email" placeholder='Username or Email' />
                     <input {...register("password")} className='border-b-2 outline-none' type="password" placeholder='Password' />
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>
                         <input className='cursor-pointer' type="checkbox" name="" />
-                        <p>Remember Me</p>
+                        <p className='text-xs md:text-base'>Remember Me</p>
                     </div>
                     <div>
-                        <Link>Forget Password?</Link>
+                        <Link className='text-xs md:text-base'>Forget Password?</Link>
                     </div>
                 </div>
                 <button type='submit' className='btn w-full bg-[#3e9ddd] text-white font-semibold border-none outline-none mt-12'>Login</button>
-                <p className='text-center mt-4'>Don’t have an account? <Link className='text-blue-600' to={"/registration"}>Create an account</Link></p>
+                <p className='text-center mt-4 text-xs md:text-base'>Don’t have an account? <Link className='text-blue-600' to={"/registration"}>Create an account</Link></p>
 
 
 

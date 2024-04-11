@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
@@ -62,51 +61,7 @@ const Registration = () => {
     }
 
 
-    // ---------Social Login-------------
 
-    const handelSocialLogin = (accountName) => {
-        if (accountName == "google") {
-            logIngWithGoogle()
-                .then(result => {
-                    document.getElementById('my_modal_1').showModal();
-                    const showModal = setTimeout(navigateRoute, 2000);
-                })
-                .catch(error => {
-                    toast.warn("Email or Password Incorrect!")
-                })
-        }
-        else if (accountName == "faceBook") {
-            logInWithFaceBook()
-                .then(result => {
-                    document.getElementById('my_modal_1').showModal();
-                    const showModal = setTimeout(navigateRoute, 2000);
-                })
-                .catch(error => {
-                    toast.warn("Email or Password Incorrect!")
-                })
-        }
-        else if (accountName == "gitHub") {
-            logInWithGitHub()
-                .then(result => {
-                    document.getElementById('my_modal_1').showModal();
-                    const showModal = setTimeout(navigateRoute, 2000);
-                })
-                .catch(error => {
-                    toast.warn("Email or Password Incorrect!")
-                })
-        }
-        else if (accountName == "twitter") {
-            logInWithTwitter()
-                .then(result => {
-                    document.getElementById('my_modal_1').showModal();
-                    const showModal = setTimeout(navigateRoute, 2000);
-                })
-                .catch(error => {
-                    toast.warn("Email or Password Incorrect!")
-                })
-        }
-
-    }
     return (
         <div
             data-aos="zoom-in-up"
@@ -115,7 +70,7 @@ const Registration = () => {
             <form onSubmit={handleSubmit(handelRegister)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Register Now</h3>
 
-                <div className='flex flex-col w-[400px] gap-12 *:bg-transparent'>
+                <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
                     <input {...register('firstName')} className='border-b-2 outline-none' type="text" placeholder='First Name' />
                     <input {...register('lastName')} className='border-b-2 outline-none' type="text" placeholder='Last Name' />
                     <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Email' />
@@ -138,20 +93,6 @@ const Registration = () => {
                 </div>
                 <button type='submit' className='btn w-full bg-[#3e9ddd] text-white border-none outline-none mt-12'>Sign Up</button>
                 <p className='text-center mt-4'>Already have an account? <Link className='text-blue-600' to={"/login"}>Login Now</Link></p>
-
-
-
-                <div className='flex items-center gap-2 mt-5'>
-                    <div className='border-2 w-1/2 h-[1px]'></div>
-                    <p>OR</p>
-                    <div className='border-2 w-1/2 h-[1px]'></div>
-                </div>
-                <div className='flex gap-5 justify-center items-center mt-5'>
-                <FcGoogle onClick={()=>handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
-                    <FaFacebook onClick={()=>handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
-                    <FaGithub onClick={()=>handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
-                    <FaTwitter onClick={()=>handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
-                </div>
 
             </form>
         </div >
