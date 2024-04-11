@@ -33,14 +33,14 @@ const Login = () => {
     }
 
     // --------Handel google login------
-    const handelSocilaLogin = (accountName) => {
+    const handelSocialLogin = (accountName) => {
         if (accountName == "google") {
             logIngWithGoogle()
                 .then(result => {
                     document.getElementById('my_modal_1').showModal();
                     const showModal = setTimeout(navigateRoute, 2000);
                 })
-                .cathc(error => {
+                .catch(error => {
                     toast.warn("Email or Password Incorrect!")
                 })
         }
@@ -50,7 +50,7 @@ const Login = () => {
                     document.getElementById('my_modal_1').showModal();
                     const showModal = setTimeout(navigateRoute, 2000);
                 })
-                .cathc(error => {
+                .catch(error => {
                     toast.warn("Email or Password Incorrect!")
                 })
         }
@@ -60,7 +60,7 @@ const Login = () => {
                     document.getElementById('my_modal_1').showModal();
                     const showModal = setTimeout(navigateRoute, 2000);
                 })
-                .cathc(error => {
+                .catch(error => {
                     toast.warn("Email or Password Incorrect!")
                 })
         }
@@ -70,7 +70,7 @@ const Login = () => {
                     document.getElementById('my_modal_1').showModal();
                     const showModal = setTimeout(navigateRoute, 2000);
                 })
-                .cathc(error => {
+                .catch(error => {
                     toast.warn("Email or Password Incorrect!")
                 })
         }
@@ -78,7 +78,10 @@ const Login = () => {
     }
 
     return (
-        <div className='min-h-screen flex justify-center items-center container mx-auto text-black'>
+        <div 
+        data-aos="zoom-in-up"
+        data-aos-duration="1500"
+        className='min-h-screen flex justify-center items-center container mx-auto text-black'>
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>
 
@@ -95,7 +98,7 @@ const Login = () => {
                         <Link>Forget Password?</Link>
                     </div>
                 </div>
-                <button type='submit' className='btn w-full bg-[#F9A51A] border-none outline-none mt-12'>Login</button>
+                <button type='submit' className='btn w-full bg-[#3e9ddd] text-white font-semibold border-none outline-none mt-12'>Login</button>
                 <p className='text-center mt-4'>Don’t have an account? <Link className='text-blue-600' to={"/registration"}>Create an account</Link></p>
 
 
@@ -106,15 +109,14 @@ const Login = () => {
                     <div className='border-2 w-1/2 h-[1px]'></div>
                 </div>
                 <div className='flex gap-5 justify-center items-center mt-5'>
-                    <FcGoogle onClick={()=>handelSocilaLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
-                    <FaFacebook className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
-                    <FaGithub onClick={()=>handelSocilaLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
-                    <FaTwitter onClick={()=>handelSocilaLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
+                    <FcGoogle onClick={()=>handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
+                    <FaFacebook onClick={()=>handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
+                    <FaGithub onClick={()=>handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
+                    <FaTwitter onClick={()=>handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
             </form>
 
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            {/* <button className="btn" onClick={() => }>open modal</button> */}
+            
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box flex justify-center items-center flex-col gap-5">
                     <div className=''>

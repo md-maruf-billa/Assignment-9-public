@@ -8,10 +8,12 @@ import { toast } from 'react-toastify';
 
 const Registration = () => {
     const [passErr, setPassErr] = useState('');
-    const [strongPass , setStrongPass] = useState("");
-    const [successPass , setSuccessPass] = useState("")
+    const [strongPass, setStrongPass] = useState("");
+    const [successPass, setSuccessPass] = useState("")
     const navigate = useNavigate();
-    const { signInWithEmail } = useContext(userInfoContext);
+    const { signInWithEmail,logIngWithGoogle, logInWithFaceBook,
+        logInWithGitHub,
+        logInWithTwitter } = useContext(userInfoContext);
     const {
         register,
         handleSubmit,
@@ -22,7 +24,7 @@ const Registration = () => {
             .then(result => {
                 toast.success("SignUp Successful")
                 navigate("/")
-               
+
             })
 
     }
@@ -58,8 +60,58 @@ const Registration = () => {
         }
 
     }
+
+
+    // ---------Social Login-------------
+
+    const handelSocialLogin = (accountName) => {
+        if (accountName == "google") {
+            logIngWithGoogle()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .catch(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "faceBook") {
+            logInWithFaceBook()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .catch(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "gitHub") {
+            logInWithGitHub()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .catch(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+        else if (accountName == "twitter") {
+            logInWithTwitter()
+                .then(result => {
+                    document.getElementById('my_modal_1').showModal();
+                    const showModal = setTimeout(navigateRoute, 2000);
+                })
+                .catch(error => {
+                    toast.warn("Email or Password Incorrect!")
+                })
+        }
+
+    }
     return (
-        <div className='min-h-screen container mx-auto flex  justify-center items-center  text-black' >
+        <div
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+            className='min-h-screen container mx-auto flex  justify-center items-center  text-black' >
             <form onSubmit={handleSubmit(handelRegister)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Register Now</h3>
 
@@ -71,8 +123,8 @@ const Registration = () => {
 
                     <input {...register('password')} onChange={managePassword} className='border-b-2 outline-none' type="password" placeholder='Password' />
                     {
-                        passErr?<small className='-mt-10 text-red-600'>{passErr}</small>:
-                        <small className='-mt-10 text-green-600'>{successPass}</small>
+                        passErr ? <small className='-mt-10 text-red-600'>{passErr}</small> :
+                            <small className='-mt-10 text-green-600'>{successPass}</small>
                     }
                 </div>
                 <div className='flex justify-between mt-6'>
@@ -84,7 +136,7 @@ const Registration = () => {
                         <Link>Forget Password?</Link>
                     </div>
                 </div>
-                <button type='submit' className='btn w-full bg-[#F9A51A] border-none outline-none mt-12'>Sign Up</button>
+                <button type='submit' className='btn w-full bg-[#3e9ddd] text-white border-none outline-none mt-12'>Sign Up</button>
                 <p className='text-center mt-4'>Already have an account? <Link className='text-blue-600' to={"/login"}>Login Now</Link></p>
 
 
@@ -95,10 +147,10 @@ const Registration = () => {
                     <div className='border-2 w-1/2 h-[1px]'></div>
                 </div>
                 <div className='flex gap-5 justify-center items-center mt-5'>
-                    <FcGoogle className='text-4xl cursor-pointer'></FcGoogle>
-                    <FaFacebook className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
-                    <FaGithub className='text-4xl cursor-pointer'></FaGithub>
-                    <FaTwitter className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
+                <FcGoogle onClick={()=>handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
+                    <FaFacebook onClick={()=>handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
+                    <FaGithub onClick={()=>handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
+                    <FaTwitter onClick={()=>handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
 
             </form>

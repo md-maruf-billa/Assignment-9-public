@@ -14,13 +14,14 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div className='mt-10'>
-                <p className='text-3xl md:text-7xl font-title text-center'>Our Best Services</p>
+                <p data-aos="fade-up" className='text-3xl md:text-7xl font-title text-center cursor-pointer'>Our Best Services</p>
+                <div data-aos="zoom-in-up" className='w-1/4 border-4 border-[#1f2937] mx-auto hover:w-1/3 cursor-pointer'></div>
 
 
                 <div className='gradient-bg'>
                     <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20 px-4 md:px-0'>
                         {
-                            allData?.map(data => <ProductCard key={data.id} data={data}></ProductCard>)
+                            allData?.map(data => <ProductCard  key={data.id} data={data}></ProductCard>)
                         }
                     </div>
                 </div>

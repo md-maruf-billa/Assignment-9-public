@@ -28,11 +28,13 @@ const Details = () => {
 
     return (
         
-        <div className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>            
-            <div className='lg:w-1/2'>
+        <div 
+        data-aos="zoom-in-up"
+        className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>            
+            <div data-aos="fade-right" data-aos-duration="1000" className='lg:w-1/2'>
                 <img className='md:h-[600px] object-cover w-full rounded-md' src={image} alt="" />
             </div>
-            <div className='lg:w-1/2 space-y-3 border p-6 rounded-md'>
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" className='lg:w-1/2 space-y-3 border p-6 rounded-md'>
                 <h2 className='font-title text-4xl md:text-6xl'>{estate_title}</h2>
                 <p className='lg:text-xl font-semibold'><span>Segment Name:</span> {segment_name}</p>
                 <div className='flex justify-between font-semibold text-[#a855f7]'>

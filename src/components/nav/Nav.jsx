@@ -57,7 +57,7 @@ const Nav = () => {
                                 <button onClick={handelLogOut} className='btn btn-outline text-white'>Log Out</button>
                             </div>
                             :
-                            <Link to={"/login"} className='tooltip-top btn btn-warning font-semibold'>Login</Link>
+                            <Link to={"/login"} className='tooltip-top btn btn-outline text-white font-semibold'>Login</Link>
                     }
                 </div>
             </div>

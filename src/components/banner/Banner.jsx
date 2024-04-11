@@ -16,7 +16,10 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className='min-h-screen bg-[linear-gradient(180deg,rgba(0,0,0,0.70),rgba(0,0,0,0.20)),url(https://i.postimg.cc/SQf2VwYw/main-MS-bg.png)] bg-no-repeat bg-cover flex justify-center items-center'>
+        <div
+        data-aos="zoom-in-up"
+        data-aos-duration="1500"
+         className='min-h-screen bg-[linear-gradient(180deg,rgba(0,0,0,0.70),rgba(0,0,0,0.20)),url(https://i.postimg.cc/SQf2VwYw/main-MS-bg.png)] bg-no-repeat bg-cover flex justify-center items-center'>
             <div className="container mx-auto">
                 <Swiper
                     spaceBetween={30}
