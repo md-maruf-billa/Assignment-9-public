@@ -11,17 +11,17 @@ const Home = () => {
 
     return (
         <div className='px-3'>
-            <div className='min-h-[calc(100vh-220px)]'>
+            <div className='h-[50vh]  mt-[70px]'>
                 {/* --------Banner Section hare------ */}
                 <Banner></Banner>
             </div>
-            <div className='mt-10'>
+            <div className='mt-10 container mx-auto'>
                 <p data-aos="fade-up" className='text-3xl md:text-6xl font-title text-center cursor-pointer'>Our Best Services</p>
                 <div data-aos="zoom-in-up" className='w-1/4 border-4 border-[#1f2937] mx-auto hover:w-1/3 cursor-pointer'></div>
 
 
                 <div className='gradient-bg'>
-                    <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20'>
+                    <div className=' grid lg:grid-cols-2 gap-10 my-20'>
                         {
                             allData?.map(data => <ProductCard key={data.id} data={data}></ProductCard>)
                         }
@@ -29,10 +29,10 @@ const Home = () => {
                 </div>
             </div>
             <div className="my-20 pt-10">
-                <div className='hidden md:block'>
+                <div className='hidden lg:block'>
                     <Networks></Networks>
                 </div>
-                <div>
+                <div className='lg:hidden'>
                     <NetworkForMdDevice></NetworkForMdDevice>
                 </div>
             </div>

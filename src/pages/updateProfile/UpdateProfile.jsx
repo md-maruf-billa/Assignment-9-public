@@ -9,19 +9,17 @@ const UpdateProfile = () => {
     const {currentUser} = useContext(userInfoContext);
     const useNav = useNavigate();
     const reload = () => { window.location.reload() }
-    const navigate = () => { useNav("/") }
+    const navigate = () => { useNav("/user-profile") }
     const handelUpdate = (e) => {
         e.preventDefault();
         const updatePromise = updateProfile(auth.currentUser, {
-            displayName: e.target.name.value,
-            photoURL: e.target.photoURL.value
+            displayName: e.target.name.value?e.target.name.value:e.target.name.placeholder,
+            photoURL: e.target.photoURL.value?e.target.photoURL.value:e.target.photoURL.placeholder
         });
         toast.promise(
             updatePromise,
             {
-                pending: 'Updating profile...',
                 success: 'Profile updated successfully',
-                error: 'Failed to update profile' 
             }
         );
 
@@ -53,7 +51,7 @@ const UpdateProfile = () => {
                         <p className='font-semibold text-[#3e9ddd]'>Email</p>
                         <small className='text-red-600'>(Not changeable)</small>
                         </span>
-                        <input name='email' type="text" className='bg-transparent outline-none border-b-2' readOnly value={currentUser?.email} />
+                        <input name='email' type="text" className='bg-transparent outline-none border-b-2' readOnly value={currentUser?.email || 'Email Not Public'} />
                     </div>
                     <div className='flex gap-1 flex-col mt-6'>
                         <p className='font-semibold text-[#3e9ddd]'>PhotoURL</p>

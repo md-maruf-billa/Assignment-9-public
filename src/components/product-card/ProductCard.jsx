@@ -24,7 +24,7 @@ const ProductCard = ({ data }) => {
                 <div className="md:w-1/2 cursor-pointer ">
                     <div className='box'>
                         <Link state={id} to={`details/${id}`}><img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" /></Link>
-                        <div class="ribbon ribbon-top-right size-[150px] hidden lg:block"><span className='text-xs lg:text-base font-semibold'>{price}</span></div>
+                        <div className="ribbon ribbon-top-right size-[150px] hidden lg:block"><span className='text-xs lg:text-base font-semibold'>{price}</span></div>
                     </div>
                 </div>
                 <div className='md:w-1/2 space-y-3'>
@@ -48,9 +48,9 @@ const ProductCard = ({ data }) => {
                         <p className='font-semibold border px-4 py-2 rounded-lg bg-[#3498db2a] lg:hidden'>{price}</p>
                         <Link state={id} to={`details/${id}`}>
 
-                            <a href="#_" class="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-full hover:bg-blue-700 md:mx-0">
+                            <p  className="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-full hover:bg-blue-700 md:mx-0">
                                 See Details
-                            </a>
+                            </p>
                         </Link>
                     </div>
                 </div>

@@ -11,7 +11,10 @@ const Structure = () => {
             <Nav></Nav>
             <Outlet></Outlet>
             <Footer></Footer>
-            <ToastContainer />
+            <ToastContainer 
+            autoClose={1000}
+            position="top-center"
+            />
         </div>
     );
 };

@@ -1,94 +1,62 @@
-import React from 'react';
-import { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-// import 'swiper/css/pagination';
+import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import './styles.css';
 
 // import required modules
-import { Autoplay, Navigation } from 'swiper/modules';
-import { Link } from 'react-router-dom';
-
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import useFetch from '../../utils/fetch-data/useFetchData';
+import { FaArrowDownLong } from 'react-icons/fa6';
+import { LuMoveDown } from 'react-icons/lu';
 const Banner = () => {
+    const { allData } = useFetch('https://raw.githubusercontent.com/md-maruf-billa/My-all-API/main/mm-sites-api.json');
+    // console.log(allData)
     return (
-        <div
-        data-aos="zoom-in-up"
-        data-aos-duration="1500"
-         className='min-h-screen bg-[linear-gradient(180deg,rgba(0,0,0,0.70),rgba(0,0,0,0.20)),url(https://i.postimg.cc/SQf2VwYw/main-MS-bg.png)] bg-no-repeat bg-cover flex justify-center items-center'>
-            <div className="container mx-auto">
-                <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Autoplay, Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <div className='flex justify-center items-center text-white'>
-                            <div className='flex flex-col justify-center items-center'>
-                                <h1 className='md:text-7xl lg:text-9xl font-title text-center md:leading-[90px] lg:leading-[140px]'>
-                                    Welcome to the <br />
-                                    Citizen Central 
-                                </h1>
-                                <div className='flex flex-col justify-center items-center gap-5'>
-                                    <Link to={"/registration"} className='btn bg-transparent text-white text-xs md:text-xl'>Create Your Citizen Central Account</Link>
-                                    <small>Already Have Account? <Link to={"/login"} className='text-base underline'>Login</Link></small>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className=' p-8 rounded-3xl'>
-                            <div>
-                                <div className='h-[50vh]'>
-                                    <img className='h-full' src="https://i.postimg.cc/pyMFhHmZ/man2.png" alt="" />
-                                </div>
-                                <div></div>
-                            </div>
-                        </div>
+        <div 
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+        >
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper h-[50vh]"
+            >
+                {
+                    allData.map(data =>
+                        <SwiperSlide key={data.id}>
+                            <div className='relative'>
+                                <img className='bg-cover object-fill h-[50vh] w-full' src={data.image} alt="" />
+                                <div className='absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00000091] rounded-lg p-10 text-center'>
+                                    <h1 className='font-title text-7xl text-[#fff]'>{data.estate_title}</h1>
+                                    <p className='text-[#e7e6e6]'>{data.description.slice(0, 50)}....</p>
 
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className=' p-8 rounded-3xl'>
-                            <div>
-                                <div className='h-[50vh]'>
-                                    <img className='h-full' src="https://i.postimg.cc/pyMFhHmZ/man2.png" alt="" />
+                                    <div className='text-white flex flex-col justify-center items-center'>
+                                        <LuMoveDown className='text-4xl' />
+                                        <small className='text-[#3498db]'>Scroll</small>
+                                    </div>
                                 </div>
-                                <div></div>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='p-8 rounded-3xl'>
-                            <div>
-                                <div className='h-[50vh]'>
-                                    <img className='h-full' src="https://i.postimg.cc/pyMFhHmZ/man2.png" alt="" />
-                                </div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
+                        </SwiperSlide>
+                    )
+                }
 
-            </div>
+
+            </Swiper>
         </div>
-
-
-
-
-
     );
 };
 

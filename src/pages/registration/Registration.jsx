@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { userInfoContext } from '../../utils/authentication/UserAuth';
@@ -8,10 +7,12 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../../utils/firebase/FireBase.confing';
 
 const Registration = () => {
+    const navigate = useNavigate();
+    const reload = () => window.location.reload();
+    const switchUser = ()=> navigate("/");
     const [passErr, setPassErr] = useState('');
     const [strongPass, setStrongPass] = useState("");
     const [successPass, setSuccessPass] = useState("")
-    const navigate = useNavigate();
     const { signInWithEmail} = useContext(userInfoContext);
     const {
         register,
@@ -22,13 +23,18 @@ const Registration = () => {
         signInWithEmail(email, strongPass)
             .then(result => {
                 toast.success("SignUp Successful");
-                navigate("/");
+                setTimeout(reload,1000);
+                setTimeout(switchUser,900);
                 updateProfile(auth.currentUser, {
-                    displayName: data.firstName + data.lastName, photoURL: data.photoURL
+                    displayName: data.firstName + " " + data.lastName, photoURL: data.photoURL
                   }).then(() => {
                   }).catch((error) => {
                   });
 
+            })
+            .catch(error=>{
+                const err = error.message.split("/")[1].replace(")","");
+                toast.warn(err)
             })
 
     }

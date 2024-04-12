@@ -2,11 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify'
-import logo from '../../assets/pngwing.com.png'
 import { FaUser } from 'react-icons/fa6';
 const Nav = () => {
     const { currentUser, LogOutUser } = useContext(userInfoContext);
-
     const handelLogOut = () => {
         LogOutUser()
             .then(result => {
@@ -18,11 +16,12 @@ const Nav = () => {
     }
     const nav_Link = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><NavLink to={"/blogs"}>Blogs</NavLink></li>
+        
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
         {
             currentUser?<li><NavLink to={"/update-profile"}>Update Profile</NavLink></li>:<></>
         }
+        <li><NavLink to={"/about"}>About</NavLink></li>
     </>
     return (
         <div className='bg-[#3498dbf3] fixed w-full top-0 z-50'>
@@ -36,9 +35,9 @@ const Nav = () => {
                             {nav_Link}
                         </ul>
                     </div>
-                    <div className='flex justify-center items-center'>
-                        <img className='w-20 hidden md:block' src={logo} alt="" />
-                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">S.Citizen</Link>
+                    <div className='flex justify-center items-center gap-2'>
+                        <img className='size-10 hidden md:block' src='/logo.png' alt="" />
+                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">C.Citizen</Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex">
@@ -50,7 +49,7 @@ const Nav = () => {
                     {
                         currentUser ?
                             <div className='flex justify-center items-center gap-3'>
-                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.displayName || 'Email Not Found'}`}>
+                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.displayName || 'Display name not found'}`}>
                                     <div className="flex justify-center items-center">
                                         <div  className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full flex justify-center items-center">
