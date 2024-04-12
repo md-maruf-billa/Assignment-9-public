@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify'
@@ -16,7 +16,6 @@ const Nav = () => {
                 toast.warn('Log Out Failed!');
             })
     }
-
     const nav_Link = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/blogs"}>Blogs</NavLink></li>
@@ -37,9 +36,9 @@ const Nav = () => {
                             {nav_Link}
                         </ul>
                     </div>
-                    <div className='justify-center items-center hidden md:flex'>
-                        <img className='w-20' src={logo} alt="" />
-                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title  mt-2">S.Citizen</Link>
+                    <div className='flex justify-center items-center'>
+                        <img className='w-20 hidden md:block' src={logo} alt="" />
+                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">S.Citizen</Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex">

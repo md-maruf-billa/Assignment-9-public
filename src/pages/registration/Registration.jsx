@@ -4,15 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../utils/firebase/FireBase.confing';
 
 const Registration = () => {
     const [passErr, setPassErr] = useState('');
     const [strongPass, setStrongPass] = useState("");
     const [successPass, setSuccessPass] = useState("")
     const navigate = useNavigate();
-    const { signInWithEmail,logIngWithGoogle, logInWithFaceBook,
-        logInWithGitHub,
-        logInWithTwitter } = useContext(userInfoContext);
+    const { signInWithEmail} = useContext(userInfoContext);
     const {
         register,
         handleSubmit,
@@ -21,8 +21,13 @@ const Registration = () => {
         const email = data.email;
         signInWithEmail(email, strongPass)
             .then(result => {
-                toast.success("SignUp Successful")
-                navigate("/")
+                toast.success("SignUp Successful");
+                navigate("/");
+                updateProfile(auth.currentUser, {
+                    displayName: "Jane Q. User", photoURL: ""
+                  }).then(() => {
+                  }).catch((error) => {
+                  });
 
             })
 

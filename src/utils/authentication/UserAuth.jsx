@@ -65,7 +65,7 @@ const UserAuth = ({ children }) => {
         return () => {
             unsubscribe();
         }
-    }, [])
+    }, [currentUser])
 
 
     const value = {
