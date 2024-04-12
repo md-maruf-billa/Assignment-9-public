@@ -1,10 +1,12 @@
 import { updateProfile } from 'firebase/auth';
-import React from 'react';
+import React, { useContext } from 'react';
 import auth from '../../utils/firebase/FireBase.confing';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { userInfoContext } from '../../utils/authentication/UserAuth';
 
 const UpdateProfile = () => {
+    const {currentUser} = useContext(userInfoContext);
     const useNav = useNavigate();
     const reload = () => { window.location.reload() }
     const navigate = () => { useNav("/") }
@@ -17,9 +19,9 @@ const UpdateProfile = () => {
         toast.promise(
             updatePromise,
             {
-                pending: 'Updating profile...', // Message shown while promise is pending
-                success: 'Profile updated successfully', // Message shown on success
-                error: 'Failed to update profile' // Message shown on error
+                pending: 'Updating profile...',
+                success: 'Profile updated successfully',
+                error: 'Failed to update profile' 
             }
         );
 
@@ -30,7 +32,7 @@ const UpdateProfile = () => {
                 setTimeout(reload, 1000);
             })
             .catch(error => {
-                console.error("Update failed:", error);
+                toast.warn("Update failed:", error);
             })
     }
 
@@ -43,10 +45,19 @@ const UpdateProfile = () => {
                 <form onSubmit={handelUpdate}>
                     <h3 className='font-title text-4xl md:text-6xl text-[#3e9ddd]'>Update Your Profile</h3>
                     <div className='flex gap-1 flex-col mt-8'>
-                        <input name='name' type="text" className='bg-transparent outline-none border-b-2' placeholder='Change name' />
+                        <p className='font-semibold text-[#3e9ddd]'>Name</p>
+                        <input name='name' type="text" className='bg-transparent outline-none border-b-2' placeholder={currentUser?.displayName} />
                     </div>
                     <div className='flex gap-1 flex-col mt-6'>
-                        <input name='photoURL' type="text" className='bg-transparent outline-none border-b-2' placeholder='Phot URL' />
+                        <span className='flex items-center gap-2'>
+                        <p className='font-semibold text-[#3e9ddd]'>Email</p>
+                        <small className='text-red-600'>(Not changeable)</small>
+                        </span>
+                        <input name='email' type="text" className='bg-transparent outline-none border-b-2' readOnly value={currentUser?.email} />
+                    </div>
+                    <div className='flex gap-1 flex-col mt-6'>
+                        <p className='font-semibold text-[#3e9ddd]'>PhotoURL</p>
+                        <input name='photoURL' type="text" className='bg-transparent outline-none border-b-2' placeholder={currentUser?.photoURL} />
                     </div>
                     <div className='flex justify-center items-center mt-10'>
                         <button type='submit' className='btn bg-[#3e9ddd] text-white'>Update Now</button>

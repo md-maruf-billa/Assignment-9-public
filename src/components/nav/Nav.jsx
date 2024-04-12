@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import logo from '../../assets/pngwing.com.png'
 import { FaUser } from 'react-icons/fa6';
 const Nav = () => {
-    const { currentUser, loading, LogOutUser } = useContext(userInfoContext);
+    const { currentUser, LogOutUser } = useContext(userInfoContext);
 
     const handelLogOut = () => {
         LogOutUser()
@@ -50,7 +50,7 @@ const Nav = () => {
                     {
                         currentUser ?
                             <div className='flex justify-center items-center gap-3'>
-                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.email || 'Email Not Found'}`}>
+                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.displayName || 'Email Not Found'}`}>
                                     <div className="flex justify-center items-center">
                                         <div  className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full flex justify-center items-center">

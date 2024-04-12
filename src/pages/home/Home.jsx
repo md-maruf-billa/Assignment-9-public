@@ -3,13 +3,14 @@ import Banner from '../../components/banner/Banner';
 import useFetch from '../../utils/fetch-data/useFetchData';
 import ProductCard from '../../components/product-card/ProductCard';
 import Networks from '../../components/network/Networks';
+import NetworkForMdDevice from '../../components/network/NetworkForMdDevice';
 
 const Home = () => {
     // -----Loading Data From Custom hook---------
     const { allData } = useFetch('https://raw.githubusercontent.com/md-maruf-billa/My-all-API/main/mm-sites-api.json')
 
     return (
-        <div>
+        <div className='px-3'>
             <div className='min-h-[calc(100vh-220px)]'>
                 {/* --------Banner Section hare------ */}
                 <Banner></Banner>
@@ -20,7 +21,7 @@ const Home = () => {
 
 
                 <div className='gradient-bg'>
-                    <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20 px-4 md:px-0'>
+                    <div className='container mx-auto grid lg:grid-cols-2 gap-10 my-20'>
                         {
                             allData?.map(data => <ProductCard key={data.id} data={data}></ProductCard>)
                         }
@@ -28,7 +29,12 @@ const Home = () => {
                 </div>
             </div>
             <div className="my-20 pt-10">
-                <Networks></Networks>
+                <div className='hidden md:block'>
+                    <Networks></Networks>
+                </div>
+                <div>
+                    <NetworkForMdDevice></NetworkForMdDevice>
+                </div>
             </div>
         </div>
     );

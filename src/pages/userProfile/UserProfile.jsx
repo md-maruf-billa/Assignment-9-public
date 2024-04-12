@@ -11,7 +11,7 @@ const UserProfile = () => {
         data-aos="zoom-in-up"
         data-aos-duration="1500"
          className='min-h-[calc(100vh-370px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
-            <div className='bg-[#54a9e128] p-10 md:p-20 rounded-lg'>
+            <div className='bg-[#efefef] p-10 md:p-20 rounded-lg'>
                 <h3 className='font-title text-5xl md:text-6xl text-center text-[#3e9ddd] mb-8'>Your Profile</h3>
                 <div className='flex justify-center items-center'>
                     {
@@ -24,9 +24,9 @@ const UserProfile = () => {
                 </div>
 
                 <div className='mt-5 space-y-2'>
-                    <p><span className='font-semibold'>Name:</span> {currentUser?.displayName || "User Name not public"}</p>
-                    <p><span className='font-semibold'>Email:</span> {currentUser?.email || "User Email not public"}</p>
-                    <p><span className='font-semibold'>Email Verified:</span> {currentUser?.emailVerified ? "Verified" : "Not Verified"}</p>
+                    <p><span className='font-semibold text-[#3e9ddd]'>Name:</span> {currentUser?.displayName || "User Name not public"}</p>
+                    <p><span className='font-semibold text-[#3e9ddd]'>Email:</span> {currentUser?.email || "User Email not public"}</p>
+                    <p><span className='font-semibold text-[#3e9ddd]'>Email Verified:</span> {currentUser?.emailVerified ? "Verified" : "Not Verified"}</p>
                 </div>
                 <div className='flex justify-center items-center mt-8 '>
                     <Link to={"/update-profile"} className='btn bg-[#3e9ddd] text-white'><FaEdit></FaEdit>Edit Profile</Link>
