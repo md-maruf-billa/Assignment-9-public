@@ -24,7 +24,7 @@ const Registration = () => {
                 toast.success("SignUp Successful");
                 navigate("/");
                 updateProfile(auth.currentUser, {
-                    displayName: "Jane Q. User", photoURL: ""
+                    displayName: data.firstName + data.lastName, photoURL: data.photoURL
                   }).then(() => {
                   }).catch((error) => {
                   });
@@ -71,8 +71,8 @@ const Registration = () => {
         <div
             data-aos="zoom-in-up"
             data-aos-duration="1500"
-            className='min-h-screen container mx-auto flex  justify-center items-center  text-black' >
-            <form onSubmit={handleSubmit(handelRegister)} className='bg-[#00000010] px-14 py-10 rounded-lg'>
+            className='min-h-screen container mx-auto flex  justify-center items-center  text-black px-3 md:px-0' >
+            <form onSubmit={handleSubmit(handelRegister)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Register Now</h3>
 
                 <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
