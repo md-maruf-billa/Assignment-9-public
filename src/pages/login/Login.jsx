@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { Helmet } from 'react-helmet';
+import PageTitle from '../../components/pageTitle/PageTitle';
 
 const Login = () => {
     const location = useLocation();
@@ -83,9 +83,7 @@ const Login = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-screen flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
-            <Helmet>
-                <title>C.Central | Login</title>
-            </Helmet>
+            <PageTitle title={"C.Central | Login"}></PageTitle>
 
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>

@@ -1,13 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import PageTitle from '../../components/pageTitle/PageTitle';
 
 const Support = () => {
     return (
         <div className=' min-h-[calc(100vh-380px)] mt-[68px] mb-10 md:mb-0'>
             {/* ---------------Support Banner----------- */}
-            <Helmet>
-                <title>C.Central | Support</title>
-            </Helmet>
+            <PageTitle title={"C.Central | Support"}></PageTitle>
 
             <div className='h-[300px] md:h-[500px] bg-[url(https://t3.ftcdn.net/jpg/02/16/47/48/360_F_216474896_GM9LpFdAQq8uHupenU7ayaSUxTNCco1i.jpg)] bg-no-repeat bg-cover flex justify-center items-center'>
                 <h1 className='text-white font-title text-4xl md:text-8xl tracking-[1rem]'>Support Center</h1>

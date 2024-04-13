@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify'
@@ -49,13 +49,13 @@ const Nav = () => {
                     {
                         currentUser ?
                             <div className='flex justify-center items-center gap-3'>
-                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser.displayName || 'Display name not found'}`}>
+                                <div className="tooltip tooltip-bottom" data-tip={`${currentUser?.displayName || 'Display name not found'}`}>
                                     <div className="flex justify-center items-center">
                                         <div  className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full flex justify-center items-center">
                                                 {
-                                                    currentUser.photoURL?
-                                                    <img alt="user photo" src={currentUser.photoURL} />:
+                                                    currentUser?.photoURL?
+                                                    <img alt="user photo" src={currentUser?.photoURL} />:
                                                     <FaUser className='text-3xl mt-1 ml-1  text-black'></FaUser>
                                                 }
                                             </div>

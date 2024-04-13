@@ -13,6 +13,7 @@ const twitterProvider = new TwitterAuthProvider();
 const UserAuth = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [reRender, setReRender] = useState(false)
 
 
 
@@ -31,22 +32,22 @@ const UserAuth = ({ children }) => {
     }
 
     // -------------Sing up with google account-----------
-    const logIngWithGoogle = ()=>{
-        return signInWithPopup(auth,googleProvider)
+    const logIngWithGoogle = () => {
+        return signInWithPopup(auth, googleProvider)
     }
 
     // -------------Sign up with gitHub---------
-    const logInWithGitHub = () =>{
-        return signInWithPopup(auth,githubProvider)
+    const logInWithGitHub = () => {
+        return signInWithPopup(auth, githubProvider)
     }
 
     // -------------Sign up with Facebook----------
-    const logInWithFaceBook =()=>{
-        return signInWithPopup(auth,facebookProvider)
+    const logInWithFaceBook = () => {
+        return signInWithPopup(auth, facebookProvider)
     }
     // ------------Sign Up with Twitter
-    const logInWithTwitter = () =>{
-        return signInWithPopup(auth,twitterProvider)
+    const logInWithTwitter = () => {
+        return signInWithPopup(auth, twitterProvider)
     }
     // --------------Log Out user-------------------------
     const LogOutUser = () => {
@@ -58,14 +59,17 @@ const UserAuth = ({ children }) => {
     // -----------Current User ------------------
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            setCurrentUser(user)
-            setLoading(false)
+            
+                setCurrentUser(user);
+                setLoading(false);
+                setReRender(false)
+            
 
         })
         return () => {
             unsubscribe();
         }
-    }, [currentUser])
+    }, [reRender])
 
 
     const value = {
@@ -77,7 +81,9 @@ const UserAuth = ({ children }) => {
         logIngWithGoogle,
         logInWithGitHub,
         logInWithFaceBook,
-        logInWithTwitter
+        logInWithTwitter,
+        setReRender,
+        reRender
 
     }
     return (

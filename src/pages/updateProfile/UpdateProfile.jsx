@@ -4,34 +4,35 @@ import auth from '../../utils/firebase/FireBase.confing';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
-import { Helmet } from 'react-helmet';
+import PageTitle from '../../components/pageTitle/PageTitle';
 
 const UpdateProfile = () => {
-    const { currentUser } = useContext(userInfoContext);
-    const useNav = useNavigate();
-    const reload = () => { window.location.reload() }
-    const navigate = () => { useNav("/user-profile") }
+    const { currentUser,setReRender } = useContext(userInfoContext);
+    const useNav =  useNavigate();
+    const redirectUser =()=> useNav("/user-profile")
     const handelUpdate = (e) => {
         e.preventDefault();
-        const updatePromise = updateProfile(auth.currentUser, {
+        const updatePromise =  updateProfile(
+            auth.currentUser, {
             displayName: e.target.name.value ? e.target.name.value : e.target.name.placeholder,
             photoURL: e.target.photoURL.value ? e.target.photoURL.value : e.target.photoURL.placeholder
-        });
+            
+        })
+        
         toast.promise(
             updatePromise,
             {
                 success: 'Profile updated successfully',
             }
         );
-
-        // Redirect after update
         updatePromise
             .then(() => {
-                setTimeout(navigate, 1000);
-                setTimeout(reload, 1000);
+                setReRender(true)
+                setTimeout(redirectUser , 1000)
             })
             .catch(error => {
                 toast.warn("Update failed:", error);
+                console.log(error)
             })
     }
 
@@ -40,9 +41,7 @@ const UpdateProfile = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-[calc(100vh-370px)] mt-[68px] mb-10 md:mb-0 mx-auto container flex justify-center items-center px-2 md:px-0'>
-            <Helmet>
-                <title>C.Central | Update Profile</title>
-            </Helmet>
+            <PageTitle title={"C.Central | Update Profile"}></PageTitle>
             <div className='bg-[#efefef] px-10 md:px-14 py-20 rounded-lg' >
                 <form onSubmit={handelUpdate}>
                     <h3 className='font-title text-4xl md:text-6xl text-[#3e9ddd]'>Update Your Profile</h3>

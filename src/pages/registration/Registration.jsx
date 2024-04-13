@@ -5,16 +5,15 @@ import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../utils/firebase/FireBase.confing';
-import { Helmet } from 'react-helmet';
+import PageTitle from '../../components/pageTitle/PageTitle';
 
 const Registration = () => {
     const navigate = useNavigate();
-    const reload = () => window.location.reload();
-    const switchUser = () => navigate("/");
+    const redirectUser = () => navigate("/user-profile")
     const [passErr, setPassErr] = useState('');
     const [strongPass, setStrongPass] = useState("");
     const [successPass, setSuccessPass] = useState("")
-    const { signInWithEmail } = useContext(userInfoContext);
+    const { signInWithEmail,setReRender } = useContext(userInfoContext);
     const {
         register,
         handleSubmit,
@@ -24,11 +23,11 @@ const Registration = () => {
         signInWithEmail(email, strongPass)
             .then(result => {
                 toast.success("SignUp Successful");
-                setTimeout(reload, 1000);
-                setTimeout(switchUser, 900);
                 updateProfile(auth.currentUser, {
                     displayName: data.firstName + " " + data.lastName, photoURL: data.photoURL
                 }).then(() => {
+                    setReRender(true);
+                    setTimeout(redirectUser,1000)
                 }).catch((error) => {
                 });
 
@@ -79,9 +78,7 @@ const Registration = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-screen container mx-auto flex  justify-center items-center  text-black px-3 md:px-0' >
-            <Helmet>
-                <title>C.Central | Registration</title>
-            </Helmet>
+            <PageTitle title={"C.Central | Registration"}></PageTitle>
             <form onSubmit={handleSubmit(handelRegister)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Register Now</h3>
 

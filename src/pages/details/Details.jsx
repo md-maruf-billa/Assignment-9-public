@@ -5,6 +5,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
 import { Helmet } from 'react-helmet';
+import PageTitle from '../../components/pageTitle/PageTitle';
 const Details = () => {
     const { id } = useParams()
     const [machData, setMachData] = useState([]);
@@ -32,9 +33,7 @@ const Details = () => {
         <div
             data-aos="zoom-in-up"
             className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>
-            <Helmet>
-                <title>{estate_title}</title>
-            </Helmet>
+            <PageTitle title={`C.Central | ${estate_title}`}></PageTitle>
             <div data-aos="fade-right" data-aos-duration="1000" className='lg:w-1/2'>
                 <img className='md:h-[600px] object-cover w-full rounded-md' src={image} alt="" />
             </div>
