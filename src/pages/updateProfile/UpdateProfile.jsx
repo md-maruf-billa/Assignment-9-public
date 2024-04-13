@@ -40,7 +40,7 @@ const UpdateProfile = () => {
         <div
             data-aos="zoom-in-up"
             data-aos-duration="1500"
-            className='min-h-[calc(100vh-370px)] mt-[68px] mb-10 md:mb-0 mx-auto container flex  justify-center items-center px-2 md:px-0'>
+            className='min-h-[calc(100vh-345px)] mt-[68px] mb-10 md:mb-0 mx-auto container flex  justify-center items-center px-2 md:px-0'>
             <PageTitle title={"C.Central | Update Profile"}></PageTitle>
             <div className='bg-[#efefef] px-10 md:px-14 py-20 rounded-lg border-2 border-[#3e9ddd]' >
                 <form onSubmit={handelUpdate}>

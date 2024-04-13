@@ -38,7 +38,6 @@ const Nav = () => {
                     </div>
                     <div className='flex justify-center items-center gap-2'>
                         <img className='size-10 hidden md:block' src='/logo.png' alt="" />
-                        {/* <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">C.Citizen</Link> */}
                         <TypeAnimation
                             sequence={['C.Citizen', 500, 'Citizen', 500, 'Central', 500]}
                             className='font-title text-3xl tracking-[0.7rem] hidden lg:block'

@@ -7,7 +7,7 @@ import Footer from '../../components/footer/Footer';
 const Error = () => {
     return (
         <div className='bg-[#f0f0f0]'>
-            <div className='min-h-[calc(100vh-300px)]'>
+            <div className='min-h-[calc(100vh-273px)]'>
                 <Nav></Nav>
 
                 <div data-aos="zoom-in-down" data-aos-duration="1500">

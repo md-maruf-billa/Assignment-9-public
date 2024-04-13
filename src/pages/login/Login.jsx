@@ -82,7 +82,7 @@ const Login = () => {
         <div
             data-aos="zoom-in-up"
             data-aos-duration="1500"
-            className='min-h-[calc(100vh-370px)] mt-[68px] flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
+            className='min-h-[calc(100vh-345px)] mt-[68px] flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
             <PageTitle title={"C.Central | Login"}></PageTitle>
 
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg border-2 border-[#3e9ddd]'>
