@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const location = useLocation();
@@ -78,10 +79,14 @@ const Login = () => {
     }
 
     return (
-        <div 
-        data-aos="zoom-in-up"
-        data-aos-duration="1500"
-        className='min-h-screen flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
+        <div
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+            className='min-h-screen flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
+            <Helmet>
+                <title>C.Central | Login</title>
+            </Helmet>
+
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg'>
                 <h3 className='text-center font-title text-5xl mb-10'>Login Now</h3>
 
@@ -109,14 +114,14 @@ const Login = () => {
                     <div className='border-2 w-1/2 h-[1px]'></div>
                 </div>
                 <div className='flex gap-5 justify-center items-center mt-5'>
-                    <FcGoogle onClick={()=>handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
-                    <FaFacebook onClick={()=>handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
-                    <FaGithub onClick={()=>handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
-                    <FaTwitter onClick={()=>handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
+                    <FcGoogle onClick={() => handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
+                    <FaFacebook onClick={() => handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
+                    <FaGithub onClick={() => handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
+                    <FaTwitter onClick={() => handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
             </form>
 
-            
+
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box flex justify-center items-center flex-col gap-5">
                     <div className=''>

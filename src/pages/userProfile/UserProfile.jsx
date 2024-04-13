@@ -3,14 +3,18 @@ import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { FaUser } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { FaEdit, } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 const UserProfile = () => {
     const { currentUser } = useContext(userInfoContext);
     return (
         <div
-        data-aos="zoom-in-up"
-        data-aos-duration="1500"
-         className='min-h-[calc(100vh-370px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+            className='min-h-[calc(100vh-370px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
+            <Helmet>
+                <title>C.Central | User Profile</title>
+            </Helmet>
             <div className='bg-[#efefef] p-10 md:p-20 rounded-lg'>
                 <h3 className='font-title text-5xl md:text-6xl text-center text-[#3e9ddd] mb-8'>Your Profile</h3>
                 <div className='flex justify-center items-center'>

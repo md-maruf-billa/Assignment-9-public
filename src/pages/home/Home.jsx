@@ -4,6 +4,7 @@ import useFetch from '../../utils/fetch-data/useFetchData';
 import ProductCard from '../../components/product-card/ProductCard';
 import Networks from '../../components/network/Networks';
 import NetworkForMdDevice from '../../components/network/NetworkForMdDevice';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     // -----Loading Data From Custom hook---------
@@ -11,6 +12,9 @@ const Home = () => {
 
     return (
         <div className='px-3'>
+             <Helmet>
+                <title>Citizen Central</title>
+            </Helmet>
             <div className='h-[50vh]  mt-[70px]'>
                 {/* --------Banner Section hare------ */}
                 <Banner></Banner>

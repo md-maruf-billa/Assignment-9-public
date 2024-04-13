@@ -40,8 +40,8 @@ const Banner = () => {
                         <SwiperSlide key={data.id}>
                             <div className='relative'>
                                 <img className='bg-cover object-fill h-[50vh] w-full' src={data.image} alt="" />
-                                <div className='absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00000091] rounded-lg p-10 text-center'>
-                                    <h1 className='font-title text-7xl text-[#fff]'>{data.estate_title}</h1>
+                                <div className='absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00000091] rounded-lg p-3 md:p-10 text-center'>
+                                    <h1 className='font-title text-2xl md:text-4xl lg:text-7xl text-[#fff]'>{data.estate_title}</h1>
                                     <p className='text-[#e7e6e6]'>{data.description.slice(0, 50)}....</p>
 
                                     <div className='text-white flex flex-col justify-center items-center'>

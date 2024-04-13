@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation,useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import useFetch from '../../utils/fetch-data/useFetchData';
 import { MdLocationPin } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
+import { Helmet } from 'react-helmet';
 const Details = () => {
-    const {id} = useParams()
+    const { id } = useParams()
     const [machData, setMachData] = useState([]);
     const { allData } = useFetch('https://raw.githubusercontent.com/md-maruf-billa/My-all-API/main/mm-sites-api.json')
     useEffect(() => {
@@ -27,10 +28,13 @@ const Details = () => {
     } = machData;
 
     return (
-        
-        <div 
-        data-aos="zoom-in-up"
-        className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>            
+
+        <div
+            data-aos="zoom-in-up"
+            className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>
+            <Helmet>
+                <title>{estate_title}</title>
+            </Helmet>
             <div data-aos="fade-right" data-aos-duration="1000" className='lg:w-1/2'>
                 <img className='md:h-[600px] object-cover w-full rounded-md' src={image} alt="" />
             </div>

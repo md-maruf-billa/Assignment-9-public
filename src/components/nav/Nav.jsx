@@ -21,7 +21,7 @@ const Nav = () => {
         {
             currentUser?<li><NavLink to={"/update-profile"}>Update Profile</NavLink></li>:<></>
         }
-        <li><NavLink to={"/about"}>About</NavLink></li>
+        <li><NavLink to={"/support"}>Support</NavLink></li>
     </>
     return (
         <div className='bg-[#3498dbf3] fixed w-full top-0 z-50'>

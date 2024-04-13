@@ -9,6 +9,7 @@ import Registration from '../pages/registration/Registration';
 import PrivetRouts from '../privet-routes/PrivetRouts';
 import UserProfile from '../pages/userProfile/UserProfile';
 import UpdateProfile from '../pages/updateProfile/UpdateProfile';
+import Support from '../pages/support/Support';
 
 const Router = createBrowserRouter([
     {
@@ -40,7 +41,11 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/update-profile",
-                element:<PrivetRouts> <UpdateProfile></UpdateProfile></PrivetRouts>
+                element: <PrivetRouts> <UpdateProfile></UpdateProfile></PrivetRouts>
+            },
+            {
+                path: "/support",
+                element: <Support></Support>
             }
         ]
     }
