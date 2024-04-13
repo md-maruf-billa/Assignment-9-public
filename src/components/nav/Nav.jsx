@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { toast } from 'react-toastify'
 import { FaUser } from 'react-icons/fa6';
+import { TypeAnimation } from 'react-type-animation';
 const Nav = () => {
     const { currentUser, LogOutUser } = useContext(userInfoContext);
     const handelLogOut = () => {
@@ -16,10 +17,10 @@ const Nav = () => {
     }
     const nav_Link = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        
+
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
         {
-            currentUser?<li><NavLink to={"/update-profile"}>Update Profile</NavLink></li>:<></>
+            currentUser ? <li><NavLink to={"/update-profile"}>Update Profile</NavLink></li> : <></>
         }
         <li><NavLink to={"/support"}>Support</NavLink></li>
     </>
@@ -37,7 +38,12 @@ const Nav = () => {
                     </div>
                     <div className='flex justify-center items-center gap-2'>
                         <img className='size-10 hidden md:block' src='/logo.png' alt="" />
-                        <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">C.Citizen</Link>
+                        {/* <Link to="/" className=" text-3xl font-light tracking-[0.7rem] font-title hidden md:hidden lg:block  mt-2">C.Citizen</Link> */}
+                        <TypeAnimation
+                            sequence={['C.Citizen', 500, 'Citizen', 500, 'Central', 500]}
+                            className='font-title text-3xl tracking-[0.7rem] hidden lg:block'
+                            repeat={Infinity}
+                        />
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex">
@@ -51,12 +57,12 @@ const Nav = () => {
                             <div className='flex justify-center items-center gap-3'>
                                 <div className="tooltip tooltip-bottom" data-tip={`${currentUser?.displayName || 'Display name not found'}`}>
                                     <div className="flex justify-center items-center">
-                                        <div  className="btn btn-ghost btn-circle avatar">
+                                        <div className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full flex justify-center items-center">
                                                 {
-                                                    currentUser?.photoURL?
-                                                    <img alt="user photo" src={currentUser?.photoURL} />:
-                                                    <FaUser className='text-3xl mt-1 ml-1  text-black'></FaUser>
+                                                    currentUser?.photoURL ?
+                                                        <img alt="user photo" src={currentUser?.photoURL} /> :
+                                                        <FaUser className='text-3xl mt-1 ml-1  text-black'></FaUser>
                                                 }
                                             </div>
                                         </div>

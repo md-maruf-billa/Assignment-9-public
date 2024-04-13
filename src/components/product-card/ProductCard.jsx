@@ -20,7 +20,7 @@ const ProductCard = ({ data }) => {
         <div data-aos="zoom-in-up" data-aos-delay="50"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000">
-            <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl shadow-lg hover:scale-105'>
+            <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl shadow-lg hover:scale-105  border-[#3e9ddd]'>
                 <div className="md:w-1/2 cursor-pointer ">
                     <div className='box'>
                         <Link state={id} to={`details/${id}`}><img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" /></Link>

@@ -59,11 +59,11 @@ const UserAuth = ({ children }) => {
     // -----------Current User ------------------
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            
-                setCurrentUser(user);
-                setLoading(false);
-                setReRender(false)
-            
+
+            setCurrentUser(user);
+            setLoading(false);
+            setReRender(false);
+
 
         })
         return () => {

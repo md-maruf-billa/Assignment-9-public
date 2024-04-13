@@ -13,7 +13,7 @@ const UserProfile = () => {
             data-aos-duration="1500"
             className='min-h-[calc(100vh-370px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
             <PageTitle title={"C.Central | User Profile"}></PageTitle>
-            <div className='bg-[#efefef] p-10 md:p-20 rounded-lg'>
+            <div className='bg-[#efefef] p-10 md:p-20 rounded-lg border-2 border-[#3e9ddd]'>
                 <h3 className='font-title text-5xl md:text-6xl text-center text-[#3e9ddd] mb-8'>Your Profile</h3>
                 <div className='flex justify-center items-center'>
                     {

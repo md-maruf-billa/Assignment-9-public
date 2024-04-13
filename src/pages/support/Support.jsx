@@ -1,19 +1,28 @@
 import React from 'react';
 import PageTitle from '../../components/pageTitle/PageTitle';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import { TypeAnimation } from 'react-type-animation';
 
 const Support = () => {
+    const position = [51.505, -0.09]
     return (
-        <div className=' min-h-[calc(100vh-380px)] mt-[68px] mb-10 md:mb-0'>
+        <div className=' min-h-[calc(100vh-380px)] mt-[68px] mb-10 md:mb-0 px-4 lg:px-0'>
             {/* ---------------Support Banner----------- */}
             <PageTitle title={"C.Central | Support"}></PageTitle>
 
             <div className='h-[300px] md:h-[500px] bg-[url(https://t3.ftcdn.net/jpg/02/16/47/48/360_F_216474896_GM9LpFdAQq8uHupenU7ayaSUxTNCco1i.jpg)] bg-no-repeat bg-cover flex justify-center items-center'>
-                <h1 className='text-white font-title text-4xl md:text-8xl tracking-[1rem]'>Support Center</h1>
+                {/* <h1 className='text-white font-title text-4xl md:text-8xl md:tracking-[1rem]'>Support Center</h1> */}
+                <TypeAnimation
+                    className='text-white font-title text-4xl md:text-8xl md:tracking-[1rem]'
+                    sequence={['Support Center', 500, 'Now we are 24/7', 500]}
+                    repeat={Infinity}
+                />
             </div>
 
 
 
-            <div className='container mx-auto grid grid-cols-1  md:grid-cols-3 gap-8 my-20'>
+            <div className='container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 my-20'>
                 <div
                     data-aos="fade-left"
                     data-aos-duration="1000"
@@ -83,13 +92,28 @@ const Support = () => {
                     </form>
                 </section>
 
-                <div
+                {/* <div
                     data-aos="zoom-in-up"
                     data-aos-duration="1500"
                     data-aos-offset="300"
                     data-aos-easing="ease-in-sine"
                     className='flex justify-center items-center'>
                     <iframe className='rounded-lg w-[400px] md:w-[600px] ' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.97303512554!2d90.33728842456533!3d23.780818635643442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1712944121239!5m2!1sen!2sbd" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                </div> */}
+
+
+                <div className='h-[450px] w-full lg:w-1/2'>
+                    <MapContainer className='h-full z-0' center={position} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={position}>
+                            <Popup>
+                                This is a demo Map create by using react leaflet <br /> Design By: Abu-Mahid
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
                 </div>
             </div>
         </div>
