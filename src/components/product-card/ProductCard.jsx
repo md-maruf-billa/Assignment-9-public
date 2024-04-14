@@ -47,9 +47,9 @@ const ProductCard = ({ data }) => {
                         <p className='font-semibold border px-4 py-2 rounded-lg bg-[#3498db2a]'>{price}</p>
                         <Link state={id} to={`details/${id}`}>
 
-                            <p  className="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-lg hover:bg-blue-700 md:mx-0">
+                            <button  className="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-lg hover:bg-blue-700 md:mx-0">
                                 See Details
-                            </p>
+                            </button>
                         </Link>
                     </div>
                 </div>
