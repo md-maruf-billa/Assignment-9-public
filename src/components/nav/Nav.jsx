@@ -17,6 +17,9 @@ const Nav = () => {
     }
     const nav_Link = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
+        {
+            currentUser ? <li><NavLink to={"/user-order"}>Order</NavLink></li> : <></>
+        }
 
         <li><NavLink to={"/user-profile"}>User Profile</NavLink></li>
         {

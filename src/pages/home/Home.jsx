@@ -19,8 +19,8 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div className='mt-10 container mx-auto'>
-                <p data-aos="fade-up" className='text-3xl md:text-6xl font-title text-center cursor-pointer'>Our Best Services</p>
-                <div data-aos="zoom-in-up" className='w-1/4 border-4 border-[#1f2937] mx-auto hover:w-1/3 cursor-pointer'></div>
+                <p data-aos="fade-up" className='text-3xl md:text-6xl text-[#3498db] font-title text-center cursor-pointer'>Our Best Services</p>
+                <div data-aos="zoom-in-up" className='w-1/4 border-4 border-[#3498db] mx-auto hover:w-1/3 cursor-pointer'></div>
 
 
                 <div className='gradient-bg'>

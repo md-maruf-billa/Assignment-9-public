@@ -4,8 +4,8 @@ import useFetch from '../../utils/fetch-data/useFetchData';
 import { MdLocationPin } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
-import { Helmet } from 'react-helmet';
 import PageTitle from '../../components/pageTitle/PageTitle';
+import { setInLocalStorage } from '../../utils/localStorage/LocalStorage';
 const Details = () => {
     const { id } = useParams()
     const [machData, setMachData] = useState([]);
@@ -27,6 +27,12 @@ const Details = () => {
         facilities,
         image
     } = machData;
+
+
+    // ---------------Handel Local Storage---------
+    const setDataInLocalStorage = (finder,value) => {
+        setInLocalStorage(finder,value)
+    }
 
     return (
 
@@ -58,7 +64,8 @@ const Details = () => {
                 </div>
                 <div className='flex justify-center lg:justify-end items-center py-4'>
                     {
-                        price == 'Not for sale' ? <button>
+                        price == 'Not for sale' ? <button onClick={() => setDataInLocalStorage('rent',machData.id)}>
+
                             <a className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group">
                                 <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -67,7 +74,7 @@ const Details = () => {
                                 <span className="relative invisible">Add to Rent</span>
                             </a>
                         </button> :
-                            <button>
+                            <button onClick={() => setDataInLocalStorage('sell',machData.id)}>
                                 <a className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group">
                                     <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

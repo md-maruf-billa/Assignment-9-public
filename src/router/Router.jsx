@@ -10,6 +10,7 @@ import PrivetRouts from '../privet-routes/PrivetRouts';
 import UserProfile from '../pages/userProfile/UserProfile';
 import UpdateProfile from '../pages/updateProfile/UpdateProfile';
 import Support from '../pages/support/Support';
+import UserOrder from '../pages/userOrder/UserOrder';
 
 const Router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const Router = createBrowserRouter([
             {
                 path: "/support",
                 element: <Support></Support>
+            },
+            {
+                path:"/user-order",
+                element:<PrivetRouts><UserOrder></UserOrder></PrivetRouts>
             }
         ]
     }

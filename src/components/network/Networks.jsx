@@ -16,8 +16,8 @@ const Networks = () => {
     return (
         <section >
             <div className='mb-10' >
-                <h3 data-aos="zoom-in-up" data-aos-duration="1500" className='text-3xl md:text-6xl font-title text-center cursor-pointer'>Our Ratings</h3>
-                <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1500" className='w-1/4 border-4 border-[#1f2937] mx-auto hover:w-1/3 cursor-pointer'></div>
+                <h3 data-aos="zoom-in-up" data-aos-duration="1500" className='text-3xl text-[#3498db] md:text-6xl font-title text-center cursor-pointer'>Our Ratings</h3>
+                <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1500" className='w-1/4 border-4 border-[#3498db] mx-auto hover:w-1/3 cursor-pointer'></div>
             </div>
             <Swiper
                 data-aos="zoom-in-up"
