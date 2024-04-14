@@ -75,7 +75,7 @@ const UserOrder = () => {
                                                             <img src={data.image} alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>
-                                                    <div className='w-[190px]'>
+                                                    <div className='w-[185px]'>
                                                         <div className="font-bold">{data.estate_title}</div>
                                                         <div className="text-sm opacity-50">{data.location}</div>
                                                         <div className="text-sm font-semibold text-[#95c9ec]">{data.price}</div>
@@ -130,7 +130,7 @@ const UserOrder = () => {
                                                             <img src={data.image} alt="Avatar Tailwind CSS Component" />
                                                         </div>
                                                     </div>
-                                                    <div className='w-[190px]'>
+                                                    <div className='w-[185px]'>
                                                         <div className="font-bold">{data.estate_title}</div>
                                                         <div className="text-sm opacity-50">{data.location}</div>
                                                         <div className="text-sm font-semibold text-[#95c9ec]">{data.price}</div>

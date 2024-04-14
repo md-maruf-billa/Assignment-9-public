@@ -92,17 +92,10 @@ const Support = () => {
                     </form>
                 </section>
 
-                {/* <div
-                    data-aos="zoom-in-up"
-                    data-aos-duration="1500"
+                <div className='h-[450px] w-full lg:w-1/2' data-aos="zoom-in-up"
+                    data-aos-duration="1000"
                     data-aos-offset="300"
-                    data-aos-easing="ease-in-sine"
-                    className='flex justify-center items-center'>
-                    <iframe className='rounded-lg w-[400px] md:w-[600px] ' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.97303512554!2d90.33728842456533!3d23.780818635643442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1712944121239!5m2!1sen!2sbd" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                </div> */}
-
-
-                <div className='h-[450px] w-full lg:w-1/2'>
+                    data-aos-easing="ease-in-sine">
                     <MapContainer className='h-full z-0' center={position} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

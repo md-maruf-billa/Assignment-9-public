@@ -20,35 +20,34 @@ const ProductCard = ({ data }) => {
         <div data-aos="zoom-in-up" data-aos-delay="50"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000">
-            <div className='flex flex-col md:flex-row items-center border p-6 rounded-2xl shadow-lg hover:scale-105  border-[#3e9ddd]'>
-                <div className="md:w-1/2 cursor-pointer ">
+            <div className='flex flex-col items-center border p-6 rounded-2xl shadow-lg  border-[#3e9ddd]'>
+                <div className=" cursor-pointer ">
                     <div className='box'>
-                        <Link state={id} to={`details/${id}`}><img className='md:w-[300px] h-[250px] object-cover rounded-lg' src={image} alt="" /></Link>
-                        <div className="ribbon ribbon-top-right size-[150px] hidden lg:block"><span className='text-xs lg:text-base font-semibold'>{price}</span></div>
+                        <Link state={id} to={`details/${id}`}><img className=' md:w-[270px] lg:w-[443px] object-fill md:h-[160px] lg:h-[264px] rounded-lg' src={image} alt="" /></Link>
                     </div>
                 </div>
-                <div className='md:w-1/2 space-y-3'>
-                    <h2 className='font-title text-[28px]'>{estate_title}</h2>
-                    <p><span className='font-semibold'>Segment Type:</span> <span className='bg-[rgba(35,190,10,0.05)] p-2 rounded-lg'>{segment_name}</span></p>
+                <div className='w-full space-y-3 mt-4'>
+                    <h2 className='font-title text-2xl md:text-xl lg:text-[25px] md:tracking-[0.08rem]'>{estate_title}</h2>
+                    <p className='text-xs'><span className='font-semibold'>Segment Type:</span> <span className='bg-[rgba(35,190,10,0.05)] p-2 rounded-lg'>{segment_name}</span></p>
                     <hr />
                     <div className='flex justify-between items-center'>
-                        <p><span className='font-semibold'>Status:</span> {status}</p>
-                        <p><span className='font-semibold'>Location:</span> {location}</p>
+                        <p className='text-xs'><span className='font-semibold'>Status:</span> {status}</p>
+                        <p className='text-xs'><span className='font-semibold'>Location:</span> {location}</p>
                     </div>
                     <hr />
-                    <div className='flex-wrap gap-2 text-xs items-center hidden md:flex'>
+                    <div className='flex-wrap gap-2 text-xs items-center hidden lg:flex'>
                         <p className='font-semibold'>Facilities:</p>
                         <p className='bg-[rgba(255,172,51,0.15)] py-2 px-4 rounded-full'>{facilities?.[0]}</p>
                         <p className='bg-[rgba(255,172,51,0.15)] py-2 px-4 rounded-full'>{facilities?.[1]}</p>
 
 
                     </div>
-                    <hr className='hidden md:block' />
-                    <div className='flex justify-between lg:justify-end items-center'>
-                        <p className='font-semibold border px-4 py-2 rounded-lg bg-[#3498db2a] lg:hidden'>{price}</p>
+                    <hr className='hidden lg:block' />
+                    <div className='flex justify-between items-center text-xs'>
+                        <p className='font-semibold border px-4 py-2 rounded-lg bg-[#3498db2a]'>{price}</p>
                         <Link state={id} to={`details/${id}`}>
 
-                            <p  className="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-full hover:bg-blue-700 md:mx-0">
+                            <p  className="inline-block px-5 py-2 mx-auto text-white bg-[#3498db] font-semibold rounded-lg hover:bg-blue-700 md:mx-0">
                                 See Details
                             </p>
                         </Link>

@@ -14,7 +14,7 @@ const Home = () => {
     return (
         <div className='px-3'>
             <PageTitle title={"Citizen Central"}></PageTitle>
-            <div className='h-[50vh]  mt-[70px]'>
+            <div className='h-[50vh] lg:h-[100vh]  mt-[70px]'>
                 {/* --------Banner Section hare------ */}
                 <Banner></Banner>
             </div>
@@ -24,7 +24,7 @@ const Home = () => {
 
 
                 <div className='gradient-bg'>
-                    <div className=' grid lg:grid-cols-2 gap-10 my-20'>
+                    <div  className=' grid gid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-20'>
                         {
                             allData?.map(data => <ProductCard key={data.id} data={data}></ProductCard>)
                         }
