@@ -85,10 +85,10 @@ const Registration = () => {
                 <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
                     <input {...register('firstName')} className='border-b-2 outline-none' type="text" placeholder='First Name' />
                     <input {...register('lastName')} className='border-b-2 outline-none' type="text" placeholder='Last Name' />
-                    <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Email' />
+                    <input {...register('email')} className='border-b-2 outline-none' type="email" placeholder='Email' required />
                     <input {...register('photoURL')} className='border-b-2 outline-none' type="text" placeholder='Photo URL' />
 
-                    <input {...register('password')} onChange={managePassword} className='border-b-2 outline-none' type="password" placeholder='Password' />
+                    <input {...register('password')} onChange={managePassword} className='border-b-2 outline-none' required type="password" placeholder='Password' />
                     {
                         passErr ? <small className='-mt-10 text-red-600'>{passErr}</small> :
                             <small className='-mt-10 text-green-600'>{successPass}</small>
