@@ -100,11 +100,11 @@ const Registration = () => {
                         <p>Remember Me</p>
                     </div>
                     <div>
-                        <Link className='text-xs md:text-base'>Forget Password?</Link>
+                        <Link className='text-xs md:text-base text-[#3e9ddd]'>Forget Password?</Link>
                     </div>
                 </div>
                 <button type='submit' className='btn w-full bg-[#3e9ddd] text-white border-none outline-none mt-12'>Sign Up</button>
-                <p className='text-center mt-4'>Already have an account? <Link className='text-blue-600' to={"/login"}>Login Now</Link></p>
+                <p className='text-center mt-4'>Already have an account? <Link className='text-[#3e9ddd]' to={"/login"}>Login Now</Link></p>
 
             </form>
         </div >

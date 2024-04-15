@@ -82,15 +82,15 @@ const Login = () => {
         <div
             data-aos="zoom-in-up"
             data-aos-duration="1500"
-            className='min-h-[calc(100vh-345px)] mt-[68px] flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
+            className='min-h-[calc(100vh-345px)] mt-[68px] mb-5 flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
             <PageTitle title={"C.Central | Login"}></PageTitle>
 
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg border-2 border-[#3e9ddd]'>
                 <h3 className='text-center font-title text-5xl mb-10 text-[#3e9ddd]'>Login Now</h3>
 
                 <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
-                    <input {...register("email")} className='border-b-2 outline-none' type="email" placeholder='Username or Email' />
-                    <input {...register("password")} className='border-b-2 outline-none' type="password" placeholder='Password' />
+                    <input {...register("email")} className='border-b-2 outline-none' required type="email" placeholder='Username or Email' />
+                    <input {...register("password")} className='border-b-2 outline-none' required type="password" placeholder='Password' />
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>
@@ -98,7 +98,7 @@ const Login = () => {
                         <p className='text-xs md:text-base'>Remember Me</p>
                     </div>
                     <div>
-                        <Link className='text-xs md:text-base'>Forget Password?</Link>
+                        <Link className='text-xs md:text-base text-[#3e9ddd]'>Forget Password?</Link>
                     </div>
                 </div>
                 <button type='submit' className='btn w-full bg-[#3e9ddd] text-white font-semibold border-none outline-none mt-12'>Login</button>

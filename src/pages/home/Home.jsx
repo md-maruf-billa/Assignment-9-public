@@ -12,7 +12,7 @@ const Home = () => {
     const { allData } = useFetch('https://raw.githubusercontent.com/md-maruf-billa/My-all-API/main/mm-sites-api.json')
 
     return (
-        <div className='px-3'>
+        <div className='px-4'>
             <PageTitle title={"Citizen Central"}></PageTitle>
             <div className='h-[50vh] lg:h-[100vh]  mt-[70px]'>
                 {/* --------Banner Section hare------ */}

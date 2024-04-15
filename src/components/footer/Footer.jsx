@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-[#3498db85]'>
+        <div className='bg-[#3498db85]' data-aos="fade-up" data-aos-duration="1500">
             <footer className="grid grid-cols-4 gap-10 p-10  container mx-auto text-white *:grid">
                 <nav className='col-span-4 lg:col-span-1'>
                     <div className='flex justify-center items-center gap-2'>

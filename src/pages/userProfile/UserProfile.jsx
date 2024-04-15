@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
 import { FaUser } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
@@ -6,12 +6,13 @@ import { FaEdit, } from 'react-icons/fa';
 import PageTitle from '../../components/pageTitle/PageTitle';
 
 const UserProfile = () => {
+
     const { currentUser } = useContext(userInfoContext);
     return (
         <div
             data-aos="zoom-in-up"
             data-aos-duration="1500"
-            className='min-h-[calc(100vh-345px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
+            className='min-h-[calc(100vh-325px)] mt-[68px] container mx-auto flex justify-center items-center mb-10 md:mb-0'>
             <PageTitle title={"C.Central | User Profile"}></PageTitle>
             <div className='bg-[#efefef] p-10 md:p-20 rounded-lg border-2 border-[#3e9ddd]'>
                 <h3 className='font-title text-5xl md:text-6xl text-center text-[#3e9ddd] mb-8'>Your Profile</h3>
@@ -39,3 +40,4 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+

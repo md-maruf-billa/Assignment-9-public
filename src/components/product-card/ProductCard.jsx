@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './productCard.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -20,7 +19,7 @@ const ProductCard = ({ data }) => {
         <div data-aos="zoom-in-up" data-aos-delay="50"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000">
-            <div className='flex flex-col items-center border p-6 rounded-2xl shadow-lg  border-[#3e9ddd]'>
+            <div className='flex flex-col items-center border p-6 rounded-2xl shadow-lg  hover:border-[#3e9ddd]'>
                 <div className=" cursor-pointer ">
                     <div className='box'>
                         <Link state={id} to={`details/${id}`}><img className=' md:w-[270px] lg:w-[443px] object-fill md:h-[160px] lg:h-[264px] rounded-lg' src={image} alt="" /></Link>
