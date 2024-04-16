@@ -26,11 +26,11 @@ const Footer = () => {
                 </nav>
                 <form className='col-span-4 lg:col-span-1'>
                     <h6 className="font-title text-xl text-[#3498db]">Newsletter</h6>
-                    <input className='bg-transparent outline-none border-b text-black border-black' type="text" placeholder='Enter Your Email' />
+                    <input className='bg-transparent outline-none border-b text-black border-black dark:text-white' type="text" placeholder='Enter Your Email' />
                     <button className="btn bg-[#3498db] border-none outline-none text-white mt-4">Subscribe</button>
                 </form>
             </footer>
-            <footer className="footer footer-center p-4 bg-[#3498db] text-base-content">
+            <footer className="footer footer-center p-4 bg-[#3498db] text-base-content dark:text-white">
                 <aside>
                     <p>Copyright © 2024 - All right reserved by Citizen Central || Design By- <span className='font-title text-white tracking-[0.1rem]'>Md Abu-Mahid Islam</span></p>
                 </aside>

@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useFetch from '../../utils/fetch-data/useFetchData';
 import { MdLocationPin } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
 import PageTitle from '../../components/pageTitle/PageTitle';
 import { setInLocalStorage } from '../../utils/localStorage/LocalStorage';
+
 const Details = () => {
     const { id } = useParams()
     const [machData, setMachData] = useState([]);
@@ -39,8 +40,8 @@ const Details = () => {
         <div
             data-aos="zoom-in-up"
             className='min-h-[calc(100vh-288px)] mt-[68px] container mx-auto lg:flex items-center gap-10 px-3 lg:px-0'>
-            <PageTitle title={`C.Central | ${estate_title}`}></PageTitle>
             <div data-aos="fade-right" data-aos-duration="1000" className='lg:w-1/2'>
+                <PageTitle title={estate_title}></PageTitle>
                 <img className='md:h-[600px] object-cover w-full rounded-md' src={image} alt="" />
             </div>
             <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" className='lg:w-1/2 space-y-3 border p-6 rounded-md'>

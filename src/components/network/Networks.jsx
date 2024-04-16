@@ -37,8 +37,8 @@ const Networks = () => {
 
                                 <section data={data} className="p-6">
                                     <div className="container max-w-xl mx-auto">
-                                        <div className="flex flex-col items-center w-full p-6 space-y-8 rounded-md lg:h-full lg:p-8 dark:bg-gray-50 dark:text-gray-800">
-                                            <img src={data.image} alt="" className="size-[200px] rounded-full dark:bg-gray-500" />
+                                        <div className="flex flex-col items-center w-full p-6 space-y-8 rounded-md lg:h-full lg:p-8 dark:text-gray-800">
+                                            <img src={data.image} alt="" className="size-[200px] rounded-ful" />
                                             <h3 className="text-2xl">{data.client_name}</h3>
                                             <blockquote className="max-w-lg text-lg italic font-medium text-center">"{data.review}"</blockquote>
                                             <div className="text-center dark:text-gray-600">

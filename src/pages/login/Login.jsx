@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa6';
+import React, { useContext, useState } from 'react';
+import { FaEyeSlash, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa6';
+import { VscEye } from "react-icons/vsc";
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { userInfoContext } from '../../utils/authentication/UserAuth';
@@ -8,6 +9,7 @@ import { toast } from 'react-toastify';
 import PageTitle from '../../components/pageTitle/PageTitle';
 
 const Login = () => {
+    const [eye, setEye] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
     const navigateRoute = () => { navigate(location.state ? location.state : "/") };
@@ -32,7 +34,10 @@ const Login = () => {
                 toast.warn("Email or Password Incorrect!")
             })
     }
-
+    // ----------------Handel Password Showing---------
+    const handelEye=()=>{
+        setEye(!eye);
+    }
     // --------Handel google login------
     const handelSocialLogin = (accountName) => {
         if (accountName == "google") {
@@ -88,21 +93,30 @@ const Login = () => {
             <form onSubmit={handleSubmit(handelLogin)} className='bg-[#00000010] px-10 md:px-14 py-10 rounded-lg border-2 border-[#3e9ddd]'>
                 <h3 className='text-center font-title text-5xl mb-10 text-[#3e9ddd]'>Login Now</h3>
 
-                <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent'>
-                    <input {...register("email")} className='border-b-2 outline-none' required type="email" placeholder='Username or Email' />
-                    <input {...register("password")} className='border-b-2 outline-none' required type="password" placeholder='Password' />
+                <div className='flex flex-col md:w-[400px] gap-12'>
+                    <input {...register("email")} className='dark:text-white border-b-2 outline-none bg-transparent' required type="email" placeholder='Username or Email' />
+
+                    <div className='relative'>
+                        <input {...register("password")} className='dark:text-white border-b-2 outline-none bg-transparent w-full' required type={`${eye?"password":"text"}`} placeholder='Password' />
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                            {
+                                eye ? <VscEye onClick={handelEye} className='text-2xl text-[#5a5a5a] cursor-pointer'></VscEye> :
+                                    <FaEyeSlash onClick={handelEye} className='text-xl text-[#5a5a5a] cursor-pointer'></FaEyeSlash>
+                            }
+                        </div>
+                    </div>
                 </div>
                 <div className='flex justify-between mt-6'>
                     <div className='flex items-center gap-2'>
                         <input className='cursor-pointer' type="checkbox" name="" />
-                        <p className='text-xs md:text-base'>Remember Me</p>
+                        <p className='text-xs md:text-base dark:text-white'>Remember Me</p>
                     </div>
                     <div>
                         <Link className='text-xs md:text-base text-[#3e9ddd]'>Forget Password?</Link>
                     </div>
                 </div>
                 <button type='submit' className='btn w-full bg-[#3e9ddd] text-white font-semibold border-none outline-none mt-12'>Login</button>
-                <p className='text-center mt-4 text-xs md:text-base'>Don’t have an account? <Link className='text-blue-600' to={"/registration"}>Create an account</Link></p>
+                <p className='text-center mt-4 text-xs md:text-base dark:text-white'>Don’t have an account? <Link className='text-blue-600' to={"/registration"}>Create an account</Link></p>
 
 
 
