@@ -41,7 +41,7 @@ const UserOrder = () => {
                 <div data-aos="fade-down" data-aos-duration="1000" className='w-1/4 mb-10'>
                     <div role="tablist" className="tabs tabs-lifted font-semibold">
                         <a onClick={() => setSwitchTab(true)} role="tab" className={`tab ${switchTab ? "tab-active" : ""}`}>Rent</a>
-                        <a onClick={() => setSwitchTab(false)} role="tab" className={`tab ${switchTab ? "" : "tab-active"}`}>Sell</a>
+                        <a onClick={() => setSwitchTab(false)} role="tab" className={`tab ${switchTab ? "" : "tab-active"}`}>Buy</a>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ const UserOrder = () => {
                                             SL
                                         </th>
                                         <th >Estate Name</th>
-                                        <th className='hidden md:block'>Job</th>
+                                        <th className='hidden md:block'>Facilities</th>
                                         <th>View</th>
                                     </tr>
                                 </thead>
