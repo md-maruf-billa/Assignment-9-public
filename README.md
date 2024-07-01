@@ -7,7 +7,8 @@
 ### How to run it in your computer
 
 ```
-git clone 
+// Replace all api key in .env file
+git clone https://github.com/md-maruf-billa/Assignment-9-public.git
 npm install
 npm run dev
 ```
