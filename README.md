@@ -6,11 +6,11 @@
 
 ### How to run it in your computer
 
-'''
+```
 git clone 
 npm install
 npm run dev
-'''
+```
 
 ## Features and Characteristics
 - User Authentication with Firebase: Firebase provides robust user authentication features, enabling users to securely sign up, log in, and manage their accounts. This ensures that your website can authenticate users seamlessly and securely.
